@@ -3,175 +3,243 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Gilt — Private Expense & Budget Tracker for iPhone</title>
 <meta name="description" content="A personal finance tracker that lives in your own iCloud. Budgets, bills, net worth and AI-powered bank statement import. No servers, no tracking, no ads. 14-day free trial.">
-<link rel="canonical" href="https://gilt.money/index.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Gilt">
+<link rel="canonical" href="https://gilt.money/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Gilt">
 <meta property="og:title" content="Gilt — Private Expense & Budget Tracker for iPhone">
-<meta property="og:description" content="A personal finance tracker that lives in your own iCloud. Budgets, bills, net worth and AI-powered bank statement import. No servers, no tracking, no ads. 14-day free trial.">
-<meta property="og:url" content="https://gilt.money/index.html">
-<meta property="og:image" content="https://gilt.money/assets/og.png">
+<meta property="og:description" content="A finance tracker that lives in your own iCloud. No servers, no tracking, no ads.">
+<meta property="og:url" content="https://gilt.money/"><meta property="og:image" content="https://gilt.money/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#201A10">
+<link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#0F0B05">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"MobileApplication","name":"Gilt: Expense & Budget Tracker",
-"operatingSystem":"iOS","applicationCategory":"FinanceApplication",
-"description":"A personal finance tracker that lives in your own iCloud. No servers, no tracking, no ads.",
-"offers":[{"@type":"Offer","price":"2.49","priceCurrency":"USD","category":"subscription"},
-{"@type":"Offer","price":"19.99","priceCurrency":"USD","category":"subscription"},
-{"@type":"Offer","price":"69.99","priceCurrency":"USD"}],
-"publisher":{"@type":"Organization","name":"Gilt","url":"https://gilt.money"}}
+{"@context":"https://schema.org","@type":"MobileApplication","name":"Gilt: Expense & Budget Tracker","operatingSystem":"iOS","applicationCategory":"FinanceApplication","description":"A personal finance tracker that lives in your own iCloud. No servers, no tracking, no ads.","offers":[{"@type":"Offer","price":"19.99","priceCurrency":"USD"}],"publisher":{"@type":"Organization","name":"Gilt","url":"https://gilt.money"}}
 </script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,650;1,9..144,500;1,9..144,650&family=Inter:wght@400;500;600;700&display=swap');
-:root{--bg:#151007;--panel:#1F180D;--panel2:#251C0F;--line:rgba(216,168,82,.16);--line2:rgba(216,168,82,.34);
---gold:#D8A852;--goldb:#E9C57C;--ink:#F2E9D8;--muted:#B7A98C;--dim:#8E8163}
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,650;1,9..144,650&family=Inter:wght@400;500;600;700&display=swap');
+:root{--bg:#0F0B05;--gold:#D8A852;--goldb:#E9C57C;--ink:#F2E9D8;--muted:#B7A98C;--dim:#8E8163;--line:rgba(216,168,82,.16);--line2:rgba(216,168,82,.35)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);line-height:1.68;background:var(--bg);position:relative}
-body::before{content:'';position:fixed;inset:0;z-index:-1;background:
- radial-gradient(900px 500px at 80% -10%, rgba(216,168,82,.13), transparent 60%),
- radial-gradient(700px 420px at -10% 30%, rgba(216,168,82,.07), transparent 55%),
- var(--bg)}
-.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
-header{padding:16px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;
- background:rgba(21,16,7,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.nav{display:flex;justify-content:space-between;align-items:center;gap:16px}
-.logo{font-family:'Fraunces',serif;font-size:24px;font-weight:650;color:var(--goldb);text-decoration:none;letter-spacing:.3px}
-.nav ul{display:flex;gap:6px;list-style:none;align-items:center;flex-wrap:wrap}
-.nav ul a{color:var(--muted);text-decoration:none;font-size:14.5px;font-weight:500;padding:7px 12px;border-radius:99px;transition:.18s}
-.nav ul a:hover{color:var(--goldb);background:rgba(216,168,82,.08)}
-.nav a.cta{background:var(--gold);color:#1A1206 !important;font-weight:700;padding:9px 18px}
-.nav a.cta:hover{background:var(--goldb)}
-.crumb{color:var(--dim);font-size:13px;margin:30px 0 0;letter-spacing:.2px}
-.crumb a{color:var(--gold);text-decoration:none}
-h1{font-family:'Fraunces',serif;font-size:clamp(34px,5vw,54px);line-height:1.08;font-weight:650;margin:16px 0 18px;letter-spacing:-.5px}
-h1 em{color:var(--goldb);font-style:italic;font-weight:650}
-.sub{color:var(--muted);font-size:19px;max-width:660px;margin-bottom:38px;line-height:1.7}
-h2{font-family:'Fraunces',serif;font-size:clamp(24px,3vw,32px);font-weight:650;margin:56px 0 14px;letter-spacing:-.3px}
-h3{font-size:17px;font-weight:650;margin:24px 0 8px;color:var(--ink)}
-p{margin:12px 0;max-width:74ch;color:var(--muted)}
-article p, article li{font-size:16.5px}
-article h2{margin-top:44px}
-strong{color:var(--ink)}
-ul.checks{list-style:none;margin:16px 0}
-ul.checks li{padding:8px 0 8px 32px;position:relative;color:var(--muted)}
-ul.checks li::before{content:"✦";position:absolute;left:4px;color:var(--gold);font-size:13px;top:11px}
-.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:20px;padding:26px 28px;margin:18px 0;transition:.22s}
-.card:hover{border-color:var(--line2);transform:translateY(-2px)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:26px 0}
-.grid .card{margin:0}
-.card h3{margin-top:0;font-size:16.5px}
-.card h3 a{color:var(--goldb);text-decoration:none}
-.card p{color:var(--muted);font-size:14.5px;margin-bottom:0}
-a{color:var(--gold)}
-a:hover{color:var(--goldb)}
-.btn{display:inline-block;background:var(--gold);color:#1A1206 !important;padding:14px 30px;border-radius:99px;text-decoration:none;font-weight:700;margin:14px 0;font-size:15.5px;box-shadow:0 8px 30px rgba(216,168,82,.25);transition:.2s}
-.btn:hover{background:var(--goldb);transform:translateY(-1px)}
-.note{font-size:13.5px;color:var(--dim)}
-blockquote{border-left:3px solid var(--gold);padding:10px 0 10px 22px;color:var(--goldb);margin:26px 0;font-size:19px;font-family:'Fraunces',serif;font-style:italic;line-height:1.55}
-.dark{background:linear-gradient(150deg,#241B0D,#1C1509 65%,#2A1F0E);border:1px solid var(--line2);border-radius:26px;padding:42px 38px;margin:48px 0;position:relative;overflow:hidden}
-.dark::after{content:'';position:absolute;width:520px;height:520px;right:-160px;top:-260px;background:radial-gradient(circle,rgba(216,168,82,.16),transparent 62%);pointer-events:none}
-.dark h2{color:var(--ink);margin-top:0}
-.dark p{color:var(--muted)}
-.dark a{color:var(--goldb)}
-table{border-collapse:collapse;width:100%;margin:22px 0;font-size:15px;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);color:var(--muted)}
-tr:last-child td{border-bottom:none}
-th{color:var(--dim);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.9px;background:rgba(216,168,82,.05)}
-td strong{color:var(--goldb)}
-details{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin:10px 0;transition:.2s}
-details:hover{border-color:var(--line2)}
-details[open]{border-color:var(--line2)}
-summary{font-weight:600;cursor:pointer;color:var(--ink);font-size:15.5px}
-summary::marker{color:var(--gold)}
-details p{color:var(--muted);font-size:14.5px;margin-top:10px}
-.shot{width:min(280px,78vw);border-radius:34px;border:1px solid var(--line2);outline:6px solid #0B0804;box-shadow:0 30px 70px rgba(0,0,0,.5), 0 0 60px rgba(216,168,82,.10)}
-.shots-row{display:flex;gap:26px;flex-wrap:wrap;margin:28px 0}
-footer{margin-top:90px;padding:44px 0 54px;border-top:1px solid var(--line);color:var(--dim);font-size:14px;background:rgba(15,11,5,.5)}
-footer .cols{display:flex;gap:56px;flex-wrap:wrap}
-footer h4{font-size:11.5px;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:10px;font-weight:700}
-footer ul{list-style:none}
-footer li{margin:7px 0}
-footer a{color:var(--muted);text-decoration:none}
-footer a:hover{color:var(--goldb)}
-.meta{color:var(--dim);font-size:14px;margin-bottom:28px}
-::selection{background:rgba(216,168,82,.35)}
+html{scroll-behavior:auto}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.65}
+#dust{position:fixed;inset:0;z-index:0;pointer-events:none}
+.grain{position:fixed;inset:-50%;z-index:1;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");animation:grain 7s steps(10) infinite}
+@keyframes grain{0%,100%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-4%)}60%{transform:translate(-2%,-2%)}80%{transform:translate(4%,2%)}}
+main{position:relative;z-index:2}
+nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:16px 34px;background:linear-gradient(rgba(15,11,5,.85),rgba(15,11,5,0));transition:.4s}
+nav.solid{background:rgba(15,11,5,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{font-family:'Fraunces',serif;font-size:23px;font-weight:650;color:var(--goldb);text-decoration:none;display:flex;align-items:center;gap:9px}
+.logo img{border-radius:7px}
+nav ul{display:flex;gap:4px;list-style:none;align-items:center}
+nav ul a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;padding:7px 13px;border-radius:99px;transition:.2s}
+nav ul a:hover{color:var(--goldb);background:rgba(216,168,82,.08)}
+nav a.cta{background:var(--gold);color:#1A1206;font-weight:700;padding:9px 18px}
+@media(max-width:820px){nav ul a:not(.cta){display:none}}
+.scene{position:relative;min-height:100vh}
+.pinbox{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;position:relative}
+.badge{display:inline-flex;gap:8px;border:1px solid var(--line2);background:rgba(216,168,82,.08);color:var(--goldb);border-radius:99px;padding:8px 20px;font-size:12.5px;font-weight:600;letter-spacing:1.2px}
+h1,.h1{font-family:'Fraunces',serif;font-weight:650;letter-spacing:-1px;line-height:1.04}
+#hero .h1{font-size:clamp(46px,9vw,124px);margin:26px 0 6px}
+#hero .h1 .line{display:block;overflow:hidden}
+#hero .h1 .line span{display:inline-block}
+#hero .h1 em{font-style:italic;color:var(--goldb)}
+#hero .sub{color:var(--muted);font-size:clamp(15px,2vw,19px);max-width:560px;margin:14px auto 0}
+#hero .trial{color:var(--goldb);font-weight:600;font-size:15px;margin-top:14px}
+.scrolldown{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:var(--dim);font-size:12px;letter-spacing:2px;text-transform:uppercase}
+.scrolldown::after{content:'';display:block;width:1px;height:34px;background:linear-gradient(var(--gold),transparent);margin:8px auto 0}
+.phone{width:min(320px,62vw);border-radius:44px;outline:7px solid #070502;border:1px solid var(--line2);box-shadow:0 60px 120px rgba(0,0,0,.6),0 0 90px rgba(216,168,82,.14);will-change:transform;display:block}
+#heroPhoneWrap{perspective:1400px;margin-top:42px}
+.bigline{font-family:'Fraunces',serif;font-size:clamp(34px,6.4vw,84px);font-weight:650;line-height:1.12;letter-spacing:-.8px}
+.bigline em{font-style:italic;color:var(--goldb)}
+.bigline .w{display:inline-block;opacity:.13;transition:none}
+#vault .keeper{color:var(--dim);font-size:14px;letter-spacing:2.4px;text-transform:uppercase;margin-bottom:26px}
+#vaultCore{width:150px;height:150px;border-radius:50%;margin:44px auto 0;display:flex;align-items:center;justify-content:center;font-size:52px;background:radial-gradient(circle at 34% 30%,#2A200F,#171106 70%);border:1px solid var(--line2);box-shadow:0 0 0 rgba(216,168,82,0);position:relative}
+#vaultCore::after{content:'';position:absolute;inset:-26px;border-radius:50%;border:1px dashed rgba(216,168,82,.25);animation:spin 26s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.h-wrap{overflow:hidden}
+#track{display:flex;width:300vw;will-change:transform}
+.panel{width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;gap:7vw;padding:0 7vw;flex-wrap:wrap}
+.panel .txt{max-width:430px;text-align:left}
+.panel .num{font-family:'Fraunces',serif;font-size:15vh;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(216,168,82,.45)}
+.panel h3{font-family:'Fraunces',serif;font-size:clamp(26px,3.4vw,42px);font-weight:650;margin:12px 0 12px}
+.panel p{color:var(--muted);font-size:16.5px}
+.panel .phone{width:min(280px,56vw)}
+.panel .tilt{perspective:1200px}
+#family{ text-align:center;padding:20vh 24px}
+#famStage{display:flex;justify-content:center;gap:5vw;align-items:center;margin-top:60px;perspective:1500px;position:relative}
+#famStage .phone{width:min(250px,40vw)}
+#thread{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(560px,80vw);height:80px;overflow:visible;pointer-events:none}
+#thread path{stroke:var(--gold);stroke-width:1.6;fill:none;filter:drop-shadow(0 0 6px rgba(216,168,82,.8))}
+.section{max-width:1060px;margin:0 auto;padding:14vh 24px}
+h2.st{font-family:'Fraunces',serif;font-size:clamp(28px,4vw,46px);font-weight:650;text-align:center;margin-bottom:10px}
+p.lead{color:var(--muted);text-align:center;max-width:620px;margin:0 auto 44px;font-size:17px}
+.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.pcard{background:linear-gradient(180deg,#241B0D,#1B1409);border:1px solid var(--line);border-radius:24px;padding:34px 28px;text-align:center;position:relative;transition:.3s;will-change:transform}
+.pcard:hover{transform:translateY(-6px);border-color:var(--line2)}
+.pcard.f{border-color:var(--line2);box-shadow:0 20px 70px rgba(216,168,82,.13)}
+.pcard .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold);color:#1A1206;font-size:12px;font-weight:700;padding:4px 14px;border-radius:99px;white-space:nowrap}
+.pcard h3{font-family:'Fraunces',serif;font-size:21px;font-weight:650}
+.pcard .amount{font-family:'Fraunces',serif;font-size:40px;margin:12px 0 2px;color:var(--goldb)}
+.pcard .per{color:var(--dim);font-size:13.5px;line-height:1.55}
+.pcard ul{list-style:none;margin-top:18px;text-align:left}
+.pcard li{font-size:13.5px;color:var(--muted);padding:5px 0 5px 22px;position:relative}
+.pcard li::before{content:"✦";position:absolute;left:0;color:var(--gold);font-size:11px}
+.btn{display:inline-block;background:var(--gold);color:#1A1206;padding:15px 34px;border-radius:99px;text-decoration:none;font-weight:700;font-size:16px;box-shadow:0 10px 40px rgba(216,168,82,.3);transition:.25s}
+.btn:hover{background:var(--goldb);transform:translateY(-2px)}
+.reveal{opacity:0;transform:translateY(46px)}
+footer{border-top:1px solid var(--line);padding:44px 34px 56px;color:var(--dim);font-size:14px;position:relative;z-index:2;background:rgba(11,8,3,.6)}
+.fcols{display:flex;gap:56px;flex-wrap:wrap;max-width:1060px;margin:0 auto}
+footer h4{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--gold);margin-bottom:10px}
+footer ul{list-style:none}footer li{margin:7px 0}
+footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--goldb)}
+@media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none} #dust,.grain{display:none} }
 </style></head><body>
-<header><div class="wrap"><nav class="nav">
-  <a class="logo" href="/" style="display:flex;align-items:center;gap:9px"><img src="/icon-192.png" alt="" width="26" height="26" style="border-radius:7px">Gilt</a>
+<canvas id="dust"></canvas><div class="grain"></div>
+<nav id="nav">
+  <a class="logo" href="/"><img src="/icon-192.png" width="26" height="26" alt="">Gilt</a>
   <ul>
-    <li><a href="/import.html">AI Import</a></li>
-    <li><a href="/family.html">Family</a></li>
-    <li><a href="/privacy-first.html">Privacy</a></li>
-    <li><a href="/pricing.html">Pricing</a></li>
-    <li><a href="/faq.html">FAQ</a></li>
-    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/import.html">AI Import</a></li><li><a href="/family.html">Family</a></li>
+    <li><a href="/privacy-first.html">Privacy</a></li><li><a href="/pricing.html">Pricing</a></li>
+    <li><a href="/faq.html">FAQ</a></li><li><a href="/blog/">Blog</a></li>
     <li><a class="cta" href="mailto:support@gilt.money">Support</a></li>
   </ul>
-</nav></div></header>
-<main><div class="wrap">
+</nav>
+<main>
 
-<section style="text-align:center;padding:72px 0 10px">
-  <p style="display:inline-block;border:1px solid var(--line2);background:rgba(216,168,82,.08);color:var(--goldb);border-radius:99px;padding:7px 18px;font-size:13px;font-weight:600;letter-spacing:.4px">🔒 NO SERVERS · NO TRACKING · NO ADS</p>
-  <h1 style="max-width:820px;margin:22px auto 0">A finance tracker that lives in <em>your own iCloud</em></h1>
-  <p class="sub" style="margin:18px auto 8px">Accounts, budgets, bills and net worth — beautifully native on iPhone. Your data syncs through your personal iCloud and never touches anyone's servers. Not even ours.</p>
-  <p style="color:var(--goldb);font-weight:600;margin:10px 0 26px">Try everything free for 14 days · Coming soon to the App Store</p>
-  <div class="shots-row" style="justify-content:center">
-    <img class="shot" src="/assets/budgets.png" alt="Budget screen in Gilt for iPhone" loading="lazy" style="transform:rotate(-3deg) translateY(18px)">
-    <img class="shot" src="/assets/overview.png" alt="Overview screen in Gilt: net worth and cash flow">
-    <img class="shot" src="/assets/reports.png" alt="Spending reports in Gilt" loading="lazy" style="transform:rotate(3deg) translateY(18px)">
+<section class="scene" id="hero"><div class="pinbox">
+  <span class="badge">🔒 NO SERVERS · NO TRACKING · NO ADS</span>
+  <div class="h1">
+    <span class="line"><span id="hl1">Your money,</span></span>
+    <span class="line"><span id="hl2"><em>clearly.</em></span></span>
   </div>
-  <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin:56px 0 6px;padding:26px 10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-    <div><div style="font-family:'Fraunces',serif;font-size:30px;color:var(--goldb)">0</div><div class="note">servers</div></div>
-    <div><div style="font-family:'Fraunces',serif;font-size:30px;color:var(--goldb)">14 days</div><div class="note">free trial</div></div>
-    <div><div style="font-family:'Fraunces',serif;font-size:30px;color:var(--goldb)">17</div><div class="note">languages</div></div>
-    <div><div style="font-family:'Fraunces',serif;font-size:30px;color:var(--goldb)">175</div><div class="note">countries</div></div>
-    <div><div style="font-family:'Fraunces',serif;font-size:30px;color:var(--goldb)">∞</div><div class="note">accounts</div></div>
+  <p class="sub">A finance tracker that lives in your own iCloud — accounts, budgets, bills and net worth, beautifully native on iPhone.</p>
+  <p class="trial">Try everything free for 14 days · Coming soon to the App Store</p>
+  <div id="heroPhoneWrap"><img class="phone" id="heroPhone" src="/assets/overview.png" alt="Gilt overview screen: net worth and monthly cash flow"></div>
+  <div class="scrolldown">Scroll</div>
+</div></section>
+
+<section class="scene" id="vault"><div class="pinbox">
+  <p class="keeper">The part that matters</p>
+  <div class="bigline" id="vaultText">
+    <div>Your data <em>never leaves</em></div>
+    <div>your own iCloud.</div>
   </div>
+  <p class="sub" style="color:var(--muted);max-width:520px;margin-top:22px">No servers to breach. No account to create. No analytics watching. The App Store privacy label simply reads: <strong style="color:var(--goldb)">“Data Not Collected.”</strong></p>
+  <div id="vaultCore">🔒</div>
+</div></section>
+
+<section class="scene h-wrap" id="features"><div class="pinbox" style="align-items:flex-start;justify-content:flex-start">
+<div id="track">
+  <div class="panel">
+    <div class="txt"><div class="num">01</div><h3>Budgets with <em style="color:var(--goldb)">honest pace</em></h3>
+      <p>Per-category budgets that tell you where you'll land at month end — not just where you are today. No lectures, just math.</p></div>
+    <div class="tilt"><img class="phone" src="/assets/budgets.png" alt="Budget screen in Gilt" loading="lazy"></div>
+  </div>
+  <div class="panel">
+    <div class="txt"><div class="num">02</div><h3>Import any bank. <em style="color:var(--goldb)">With your AI.</em></h3>
+      <p>Hand your statement to the AI you already use, with Gilt's prepared prompt. It converts; Gilt verifies; you approve. Works with any bank in the world — and the app itself never calls any AI service.</p>
+      <p><a href="/import.html" style="color:var(--goldb)">How it works →</a></p></div>
+    <div class="tilt"><img class="phone" src="/assets/transactions.png" alt="Transactions in Gilt" loading="lazy"></div>
+  </div>
+  <div class="panel">
+    <div class="txt"><div class="num">03</div><h3>See where <em style="color:var(--goldb)">it goes</em></h3>
+      <p>Spending by category, income vs expense, net worth over time — computed on your device, shown beautifully.</p></div>
+    <div class="tilt"><img class="phone" src="/assets/reports.png" alt="Reports in Gilt" loading="lazy"></div>
+  </div>
+</div>
+</div></section>
+
+<section class="scene" id="family">
+  <h2 class="st reveal">One household. <em style="color:var(--goldb);font-style:italic">Two phones.</em></h2>
+  <p class="lead reveal">Share the ledger with your partner through your own iCloud accounts — and share one subscription with up to five people via Apple Family Sharing. No shared passwords, no server in the middle.</p>
+  <div id="famStage">
+    <img class="phone reveal" id="famL" src="/assets/overview.png" alt="Gilt on the first family iPhone" loading="lazy">
+    <svg id="thread" viewBox="0 0 560 80"><path id="threadPath" d="M0,40 C140,0 420,80 560,40"/></svg>
+    <img class="phone reveal" id="famR" src="/assets/budgets.png" alt="Gilt on the second family iPhone" loading="lazy">
+  </div>
+  <p class="reveal" style="margin-top:44px"><a href="/family.html" style="color:var(--goldb)">How Family works →</a></p>
 </section>
 
-<h2>Everything a real tracker needs</h2>
-<p class="sub">No feature checklists held hostage. During the trial — and on every paid plan — you get the whole app.</p>
-<div class="grid">
-  <div class="card"><h3>🏦 Unlimited accounts</h3><p>Checking, savings, cash, credit cards with utilization, loans with payoff schedules, deposits with interest.</p></div>
-  <div class="card"><h3>📊 Budgets with honest pace</h3><p>Per-category budgets that tell you where you'll land at month end — not just where you are today.</p></div>
-  <div class="card"><h3>🤖 <a href="/import.html">Bring your own AI</a></h3><p>Import any bank statement in the world by handing it to the AI you already use. You review everything before it's saved.</p></div>
-  <div class="card"><h3>👨‍👩‍👧 <a href="/family.html">Family plan</a></h3><p>One household budget with your partner through your own iCloud accounts — and one subscription via Apple Family Sharing.</p></div>
-  <div class="card"><h3>💱 Multi-currency, done right</h3><p>Accounts in different currencies, transfers between them, exchange rates handled properly.</p></div>
-  <div class="card"><h3>🔐 <a href="/privacy-first.html">Private by architecture</a></h3><p>Face ID lock. CloudKit private database. App Store privacy label: “Data Not Collected.”</p></div>
-</div>
-
-<div class="dark"><h2>Why people switch to Gilt</h2>
-<p>Most finance apps want your bank passwords, run your data through their servers, and sell you an AI chatbot subscription on top. Gilt is built the opposite way: your data stays in your iCloud, the AI is the one you already have, and the whole app costs less than a coffee a month.</p>
-<p><a href="/pricing.html">See simple, honest pricing →</a></p></div>
-
-<h2>From the blog</h2>
-<div class="grid">
-  <div class="card"><h3><a href="/blog/import-bank-statement-with-ai.html">How to import any bank statement into a budget app</a></h3><p>No bank logins, no aggregators — the AI you already use does the work, and you stay in control.</p></div>
-  <div class="card"><h3><a href="/blog/what-no-servers-means.html">What “no servers” actually means</a></h3><p>Privacy policies promise. Architecture proves. Here's the difference.</p></div>
-  <div class="card"><h3><a href="/blog/family-budget-iphone.html">A family budget on iPhone — without sharing passwords</a></h3><p>Two people, one clear picture of the money, zero shared logins.</p></div>
-</div>
-
-</div></main>
-<footer><div class="wrap">
-  <div class="cols">
-    <div><h4>Gilt</h4><ul>
-      <li><a href="/">Home</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/faq.html">FAQ</a></li><li><a href="/press.html">Press kit</a></li></ul></div>
-    <div><h4>Features</h4><ul>
-      <li><a href="/import.html">AI statement import</a></li><li><a href="/family.html">Family budget</a></li><li><a href="/privacy-first.html">Privacy by architecture</a></li></ul></div>
-    <div><h4>Blog</h4><ul>
-      <li><a href="/blog/import-bank-statement-with-ai.html">Import any bank statement</a></li>
-      <li><a href="/blog/what-no-servers-means.html">What “no servers” means</a></li>
-      <li><a href="/blog/family-budget-iphone.html">Family budget on iPhone</a></li></ul></div>
-    <div><h4>Legal</h4><ul>
-      <li><a href="/privacy.html">Privacy Policy</a></li>
-      <li><a href="mailto:support@gilt.money">support@gilt.money</a></li></ul></div>
+<section class="section" id="pricing">
+  <h2 class="st reveal">Simple, <em style="color:var(--goldb);font-style:italic">honest</em> pricing</h2>
+  <p class="lead reveal">Every plan starts with 14 days of everything, free. Cancel anytime. Your data stays exportable forever — it is never held hostage.</p>
+  <div class="pricing">
+    <div class="pcard reveal"><h3>Solo</h3><div class="amount">$19.99</div><div class="per">per year — about $1.67/mo<br>or $2.49 month-to-month</div>
+      <ul><li>The complete tracker</li><li>AI import & export</li><li>Widgets, Face ID, CSV</li></ul></div>
+    <div class="pcard f reveal"><span class="tag">Most popular</span><h3>Family</h3><div class="amount">$36.99</div><div class="per">per year — about $3.08/mo<br>or $4.49 month-to-month</div>
+      <ul><li>Everything in Solo</li><li>Shared household budget</li><li>Up to 5 via Apple Family Sharing</li></ul></div>
+    <div class="pcard reveal"><h3>Lifetime</h3><div class="amount">$69.99</div><div class="per">one-time · launch offer</div>
+      <ul><li>Everything in Solo, forever</li><li>Personal to your Apple ID</li><li>No subscription</li></ul></div>
   </div>
-  <p style="margin-top:26px">© 2026 Gilt · Built for iPhone, iOS 26+ · Coming soon to the App Store</p>
-</div></footer>
+  <p class="reveal" style="text-align:center;margin-top:40px"><a class="btn" href="/pricing.html">See full pricing & FAQ</a></p>
+  <p class="reveal" style="text-align:center;color:var(--dim);font-size:13px;margin-top:14px">Prices in USD · local pricing applies in your App Store</p>
+</section>
+</main>
+
+<footer><div class="fcols">
+  <div><h4>Gilt</h4><ul><li><a href="/">Home</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/faq.html">FAQ</a></li><li><a href="/press.html">Press kit</a></li></ul></div>
+  <div><h4>Features</h4><ul><li><a href="/import.html">AI statement import</a></li><li><a href="/family.html">Family budget</a></li><li><a href="/privacy-first.html">Privacy by architecture</a></li></ul></div>
+  <div><h4>Blog</h4><ul><li><a href="/blog/import-bank-statement-with-ai.html">Import any bank statement</a></li><li><a href="/blog/what-no-servers-means.html">What “no servers” means</a></li><li><a href="/blog/family-budget-iphone.html">Family budget on iPhone</a></li></ul></div>
+  <div><h4>Legal</h4><ul><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="mailto:support@gilt.money">support@gilt.money</a></li></ul></div>
+</div>
+<p style="max-width:1060px;margin:28px auto 0">© 2026 Gilt · Built for iPhone, iOS 26+ · Coming soon to the App Store</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* ---- gold dust canvas ---- */
+const cv = document.getElementById('dust'), cx = cv.getContext('2d');
+let W,H,parts=[],gather=0;
+function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight}
+resize(); addEventListener('resize',resize);
+const N = innerWidth<700?60:120;
+for(let i=0;i<N;i++)parts.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.7+.4,s:Math.random()*.35+.06,a:Math.random()*Math.PI*2,o:Math.random()*.5+.15});
+function tick(){cx.clearRect(0,0,W,H);
+ const gx=W/2, gy=H*0.62;
+ for(const p of parts){
+  p.a+=0.004; p.y+=p.s; p.x+=Math.sin(p.a)*.3;
+  if(p.y>H+8){p.y=-8;p.x=Math.random()*W}
+  let x=p.x,y=p.y;
+  if(gather>0){x=p.x+(gx-p.x)*gather*.92; y=p.y+(gy-p.y)*gather*.92}
+  cx.beginPath();cx.arc(x,y,p.r,0,7);cx.fillStyle=`rgba(216,168,82,${p.o*(0.6+gather*0.8)})`;cx.fill();
+ }
+ requestAnimationFrame(tick)}
+if(!reduced) tick();
+/* ---- nav ---- */
+addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('solid',scrollY>60)},{passive:true});
+if(!reduced && window.gsap){
+gsap.registerPlugin(ScrollTrigger);
+/* hero intro */
+gsap.from('#hl1',{yPercent:110,duration:1,ease:'power3.out',delay:.1});
+gsap.from('#hl2',{yPercent:110,duration:1,ease:'power3.out',delay:.28});
+gsap.from('.badge,.sub,.trial',{opacity:0,y:18,duration:.9,stagger:.12,delay:.5});
+gsap.fromTo('#heroPhone',{rotateX:38,y:160,scale:.86,opacity:0},{rotateX:12,y:0,scale:1,opacity:1,duration:1.4,ease:'power3.out',delay:.55});
+/* hero scroll-out */
+gsap.timeline({scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}})
+ .to('#heroPhone',{rotateX:0,y:-80,scale:1.06,ease:'none'},0)
+ .to('#hero .h1,#hero .sub,#hero .trial,#hero .badge',{y:-120,opacity:0,ease:'none'},0);
+/* vault: pin + word reveal + particle gather */
+const words = document.querySelectorAll('#vaultText .w');
+ScrollTrigger.create({trigger:'#vault',start:'top top',end:'+=160%',scrub:true,pin:true,
+ onUpdate:self=>{gather=Math.sin(Math.min(self.progress,1)*Math.PI)}});
+gsap.from('#vaultText div',{opacity:0.1,y:40,stagger:.2,scrollTrigger:{trigger:'#vault',start:'top 60%',end:'top top',scrub:true}});
+gsap.to('#vaultCore',{boxShadow:'0 0 90px rgba(216,168,82,.5)',scale:1.08,scrollTrigger:{trigger:'#vault',start:'top center',end:'bottom center',scrub:true}});
+/* horizontal features */
+const track=document.getElementById('track');
+gsap.to(track,{xPercent:-66.666,ease:'none',scrollTrigger:{trigger:'#features',start:'top top',end:'+=250%',scrub:1,pin:true}});
+document.querySelectorAll('.panel .tilt img').forEach(img=>{
+ gsap.fromTo(img,{rotateY:-16,rotateZ:2},{rotateY:12,rotateZ:-2,ease:'none',scrollTrigger:{trigger:'#features',start:'top top',end:'+=250%',scrub:1}})});
+/* family thread */
+const path=document.getElementById('threadPath'),len=path.getTotalLength();
+path.style.strokeDasharray=len; path.style.strokeDashoffset=len;
+gsap.to(path,{strokeDashoffset:0,scrollTrigger:{trigger:'#famStage',start:'top 75%',end:'top 30%',scrub:true}});
+gsap.fromTo('#famL',{rotateY:18,x:-30},{rotateY:-8,x:0,scrollTrigger:{trigger:'#famStage',start:'top 85%',end:'top 30%',scrub:true}});
+gsap.fromTo('#famR',{rotateY:-18,x:30},{rotateY:8,x:0,scrollTrigger:{trigger:'#famStage',start:'top 85%',end:'top 30%',scrub:true}});
+/* generic reveals */
+document.querySelectorAll('.reveal').forEach(el=>{
+ gsap.to(el,{opacity:1,y:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 86%'}})});
+} else { document.querySelectorAll('.reveal').forEach(el=>{el.style.opacity=1;el.style.transform='none'}) }
+</script>
 </body></html>
