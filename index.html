@@ -1,20 +1,116 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Gilt — Support</title>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gilt — Expense & Budget Tracker for iPhone</title>
+<meta name="description" content="A personal finance tracker that lives in your own iCloud. No servers, no tracking, no ads. 14-day free trial.">
+<meta property="og:title" content="Gilt — Expense & Budget Tracker">
+<meta property="og:description" content="Your money data lives in your own iCloud. No servers, no tracking, no ads.">
+<meta property="og:url" content="https://gilt.money/">
 <style>
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;max-width:640px;margin:0 auto;padding:48px 24px;color:#1d1d1f;line-height:1.6}
-h1{color:#B98C36} a{color:#B98C36} .card{background:#faf8f2;border-radius:16px;padding:20px 24px;margin:16px 0}
-footer{margin-top:48px;font-size:13px;color:#86868b}
+:root{--gold:#D8A852;--gold-dark:#B98C36;--ink:#1d1d1f;--muted:#6e6e73;--bg:#faf8f2;--dark1:#201A10;--dark2:#3a2d18}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);line-height:1.6;background:#fff}
+.wrap{max-width:1020px;margin:0 auto;padding:0 24px}
+header{padding:20px 0}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:22px;font-weight:800;color:var(--gold-dark);letter-spacing:.5px}
+.nav a.cta{background:var(--gold);color:#fff;padding:8px 18px;border-radius:99px;text-decoration:none;font-weight:600;font-size:15px}
+.hero{background:linear-gradient(160deg,var(--dark1),var(--dark2) 70%,#6B5222);color:#fff;border-radius:28px;margin:8px auto 56px;padding:64px 24px 0;text-align:center;overflow:hidden}
+.hero h1{font-size:clamp(30px,5vw,46px);line-height:1.15;font-weight:800;max-width:720px;margin:0 auto}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero p.sub{color:#e8ddc8;max-width:560px;margin:18px auto 8px;font-size:18px}
+.badge{display:inline-block;background:rgba(216,168,82,.15);border:1px solid rgba(216,168,82,.5);color:var(--gold);border-radius:99px;padding:6px 14px;font-size:13px;font-weight:600;margin-bottom:20px}
+.hero .trial{color:var(--gold);font-weight:700;margin:14px 0 30px;font-size:16px}
+.shots{display:flex;justify-content:center;gap:20px;margin-top:8px}
+.shots img{width:230px;border-radius:28px 28px 0 0;border:6px solid #0e0b06;border-bottom:none;box-shadow:0 -12px 40px rgba(0,0,0,.35);display:block}
+.shots img.side{margin-top:42px;opacity:.95}
+@media(max-width:700px){.shots img.side{display:none}.shots img{width:min(260px,72vw)}}
+section{margin:56px 0}
+h2{font-size:28px;font-weight:800;text-align:center;margin-bottom:8px}
+p.lead{color:var(--muted);text-align:center;max-width:640px;margin:0 auto 36px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:var(--bg);border-radius:18px;padding:24px}
+.card h3{font-size:17px;margin-bottom:6px}
+.card p{color:var(--muted);font-size:15px}
+.card .ico{font-size:22px;margin-bottom:10px;display:block}
+.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;max-width:860px;margin:0 auto}
+.price-card{border:1.5px solid #eadfc8;border-radius:20px;padding:26px 24px;text-align:center;position:relative}
+.price-card.featured{border-color:var(--gold);box-shadow:0 8px 30px rgba(216,168,82,.18)}
+.price-card .tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:12px;font-weight:700;padding:3px 12px;border-radius:99px;white-space:nowrap}
+.price-card h3{font-size:18px}
+.price-card .amount{font-size:32px;font-weight:800;margin:10px 0 2px}
+.price-card .per{color:var(--muted);font-size:14px}
+.price-card ul{list-style:none;margin-top:14px;text-align:left}
+.price-card li{font-size:14px;color:var(--muted);padding:4px 0 4px 22px;position:relative}
+.price-card li::before{content:"✓";position:absolute;left:0;color:var(--gold-dark);font-weight:700}
+.trial-note{text-align:center;color:var(--muted);font-size:14px;margin-top:18px}
+details{background:var(--bg);border-radius:14px;padding:16px 20px;margin:10px 0}
+summary{font-weight:600;cursor:pointer}
+details p{color:var(--muted);margin-top:8px;font-size:15px}
+.support-box{background:linear-gradient(160deg,var(--dark1),var(--dark2));color:#fff;border-radius:22px;padding:40px 24px;text-align:center}
+.support-box a{color:var(--gold);font-weight:700;text-decoration:none;font-size:18px}
+footer{padding:36px 0 48px;color:var(--muted);font-size:13px;text-align:center}
+footer a{color:var(--gold-dark)}
 </style></head><body>
-<h1>Gilt</h1>
-<p><strong>A free, private personal finance tracker for iPhone.</strong> Your accounts, budgets, and transactions stay in your own iCloud — Gilt has no servers and no accounts.</p>
-<div class="card"><h3>Support</h3>
-<p>Questions, bug reports, or feature ideas — email us and we'll get back to you:</p>
-<p><a href="mailto:support@gilt.money">support@gilt.money</a></p></div>
-<div class="card"><h3>Frequently asked</h3>
-<p><strong>Where is my data stored?</strong> On your device and in your personal iCloud (CloudKit private database). We can't see it — there is nothing on our side to see it with.</p>
-<p><strong>Do I need an account?</strong> No. Gilt uses the iCloud account already on your iPhone.</p>
-<p><strong>Is it really free?</strong> The full tracker is free: accounts, budgets, reports, recurring payments, widgets, iCloud sync.</p></div>
-<p><a href="privacy.html">Privacy Policy</a></p>
-<footer>© 2026 Gilt</footer>
+<div class="wrap">
+<header><nav class="nav"><span class="logo">Gilt</span><a class="cta" href="mailto:support@gilt.money">Support</a></nav></header>
+
+<div class="hero">
+  <span class="badge">🔒 No servers · No tracking · No ads</span>
+  <h1>A finance tracker that lives in <em>your own iCloud</em></h1>
+  <p class="sub">Accounts, budgets, bills and net worth — beautifully native on iPhone. Your data syncs through your personal iCloud and never touches anyone's servers. Not even ours.</p>
+  <p class="trial">Try everything free for 14 days · Coming soon to the App Store</p>
+  <div class="shots">
+    <img class="side" src="assets/budgets.png" alt="Budgets in Gilt">
+    <img src="assets/overview.png" alt="Gilt overview screen">
+    <img class="side" src="assets/reports.png" alt="Reports in Gilt">
+  </div>
+</div>
+
+<section>
+  <h2>Everything a real tracker needs</h2>
+  <p class="lead">No feature checklists held hostage. During the trial — and on every paid plan — you get the whole app.</p>
+  <div class="grid">
+    <div class="card"><span class="ico">🏦</span><h3>Unlimited accounts</h3><p>Checking, savings, cash, credit cards with utilization, loans with payoff schedules, deposits with interest.</p></div>
+    <div class="card"><span class="ico">📊</span><h3>Budgets with honest pace</h3><p>Per-category budgets that tell you where you'll land at month end — not just where you are today.</p></div>
+    <div class="card"><span class="ico">🤖</span><h3>Bring your own AI</h3><p>Import any bank statement in the world by handing it to the AI you already use — with Gilt's prepared prompt. You review everything before it's saved.</p></div>
+    <div class="card"><span class="ico">👨‍👩‍👧</span><h3>Family plan</h3><p>Share one household budget with your partner through your own iCloud accounts — and share the subscription via Apple Family Sharing.</p></div>
+    <div class="card"><span class="ico">💱</span><h3>Multi-currency, done right</h3><p>Accounts in different currencies, transfers between them, exchange rates handled properly.</p></div>
+    <div class="card"><span class="ico">🔐</span><h3>Private by architecture</h3><p>Face ID lock. CloudKit private database. App Store privacy label: “Data Not Collected.” We couldn't read your data if we wanted to.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Simple, honest pricing</h2>
+  <p class="lead">Every plan starts with a 14-day free trial of everything. Cancel anytime in Settings — your data stays readable and exportable forever.</p>
+  <div class="pricing">
+    <div class="price-card"><h3>Solo</h3><div class="amount">$19.99</div><div class="per">per year — about $1.67/mo<br>or $2.49 month-to-month</div>
+      <ul><li>The complete tracker</li><li>AI import & export</li><li>Widgets, Face ID, CSV</li></ul></div>
+    <div class="price-card featured"><span class="tag">Most popular</span><h3>Family</h3><div class="amount">$36.99</div><div class="per">per year — about $3.08/mo<br>or $4.49 month-to-month</div>
+      <ul><li>Everything in Solo</li><li>Shared household budget</li><li>Up to 5 people via Apple Family Sharing</li></ul></div>
+    <div class="price-card"><h3>Lifetime</h3><div class="amount">$69.99</div><div class="per">one-time · launch offer</div>
+      <ul><li>Everything in Solo, forever</li><li>Personal to your Apple&nbsp;ID</li><li>No subscription</li></ul></div>
+  </div>
+  <p class="trial-note">Prices in USD; local pricing applies in your country's App Store.</p>
+</section>
+
+<section>
+  <h2>Frequently asked</h2>
+  <details open><summary>Where is my data stored?</summary><p>On your iPhone and in your personal iCloud (CloudKit private database). Gilt has no servers — there is literally nothing on our side that could see your data. No analytics, no tracking, no ads.</p></details>
+  <details><summary>Do I need to create an account?</summary><p>No. Gilt uses the iCloud account already on your iPhone. Nothing to sign up for, no password to remember.</p></details>
+  <details><summary>How does the free trial work?</summary><p>Every subscription starts with 14 days free — the full app, no limits. You'll get a reminder two days before it ends. If you don't continue, the app becomes read-only, but your data stays browsable and exportable to CSV forever. Your data is never held hostage.</p></details>
+  <details><summary>What happens if I stop subscribing?</summary><p>You keep access to everything you've entered: browsing, search, reports and CSV export keep working. You just can't add new records until you subscribe again.</p></details>
+  <details><summary>How does the Family plan work?</summary><p>The buyer's subscription extends to up to five members of their Apple Family Sharing group automatically. The shared household ledger syncs through your own iCloud accounts — no server in the middle.</p></details>
+  <details><summary>How does AI import work? Is it private?</summary><p>Gilt gives you a prepared prompt; you hand it to the AI you already use (Claude, ChatGPT, any other) together with your bank statement. The AI produces a file that Gilt verifies and imports. The app itself makes no network calls to any AI service, and you review every transaction before it's saved.</p></details>
+  <details><summary>How do I cancel or get a refund?</summary><p>Subscriptions are managed by Apple: Settings → your name → Subscriptions → Gilt → Cancel. Refunds are handled by Apple at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p></details>
+</section>
+
+<section class="support-box">
+  <h2 style="color:#fff">Need a hand?</h2>
+  <p style="color:#e8ddc8;margin:8px 0 16px">We answer every email — usually within a day.</p>
+  <a href="mailto:support@gilt.money">support@gilt.money</a>
+</section>
+
+<footer>© 2026 Gilt · <a href="privacy.html">Privacy Policy</a> · Built for iPhone, iOS 26+</footer>
+</div>
 </body></html>
