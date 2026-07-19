@@ -251,23 +251,24 @@ if(!reduced) tick();
 addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('solid',scrollY>60)},{passive:true});
 if(!reduced && window.gsap){
 gsap.registerPlugin(ScrollTrigger);
-/* hero: the app assembles from scattered pieces — fully scrubbed, fully reversible */
-const heroEnd='+=140%';
-ScrollTrigger.create({trigger:'#hero',start:'top top',end:heroEnd,pin:true,scrub:1,invalidateOnRefresh:true});
-document.querySelectorAll('.shard').forEach(el=>{
-  gsap.fromTo(el,
+/* hero: the app assembles from scattered pieces, then HOLDS assembled before releasing */
+const heroTL = gsap.timeline({defaults:{ease:'none'},
+ scrollTrigger:{trigger:'#hero',start:'top top',end:'+=170%',scrub:1,pin:true,invalidateOnRefresh:true}});
+document.querySelectorAll('.shard').forEach((el,i)=>{
+  heroTL.fromTo(el,
    {xPercent:-50,yPercent:-50,
     x:()=>parseFloat(el.dataset.x)/100*innerWidth,
     y:()=>parseFloat(el.dataset.y)/100*innerHeight,
     rotate:parseFloat(el.dataset.r),scale:1,opacity:1},
    {xPercent:-50,yPercent:-50,x:0,y:()=>innerHeight*0.07,rotate:0,scale:.15,opacity:0,
-    ease:'power2.in',immediateRender:true,
-    scrollTrigger:{trigger:'#hero',start:'top top',end:heroEnd,scrub:1,invalidateOnRefresh:true}});
+    duration:.5,ease:'power2.in',immediateRender:true}, i*0.035);
 });
-gsap.fromTo('#heroPhone',{opacity:.55,scale:.95},{opacity:1,scale:1,ease:'none',
- scrollTrigger:{trigger:'#hero',start:'top top',end:heroEnd,scrub:1,invalidateOnRefresh:true}});
-gsap.fromTo('#phoneGlow',{opacity:.12},{opacity:.75,ease:'none',
- scrollTrigger:{trigger:'#hero',start:'top top',end:heroEnd,scrub:1,invalidateOnRefresh:true}});
+heroTL.fromTo('#heroPhone',{opacity:.55,scale:.95},{opacity:1,scale:1,duration:.6}, 0);
+heroTL.fromTo('#phoneGlow',{opacity:.12},{opacity:.8,duration:.6}, 0);
+/* the hold: assembled phone stays on screen, glow breathes, nothing else moves */
+heroTL.to('#phoneGlow',{opacity:.95,duration:.25}, .68);
+heroTL.to('#heroPhone',{y:-10,scale:1.015,duration:.32}, .68);
+heroTL.to({},{duration:.10}); /* tail so release happens after the beat */
 /* vault: pin + word reveal + particle gather */
 const words = document.querySelectorAll('#vaultText .w');
 ScrollTrigger.create({trigger:'#vault',start:'top top',end:'+=160%',scrub:true,pin:true,
