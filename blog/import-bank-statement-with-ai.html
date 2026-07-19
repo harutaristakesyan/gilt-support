@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Gilt — Private Expense & Budget Tracker for iPhone</title>
-<meta name="description" content="A personal finance tracker that lives in your own iCloud. Budgets, bills, net worth and AI-powered bank statement import. No servers, no tracking, no ads. 14-day free trial.">
-<link rel="canonical" href="https://gilt.money/index.html">
+<title>How to import any bank statement into a budget app (using the AI you already have) — Gilt Blog</title>
+<meta name="description" content="A practical guide to importing bank statements into a budget app without bank logins or aggregators — using Claude, ChatGPT or any AI assistant you already use.">
+<link rel="canonical" href="https://gilt.money/blog/import-bank-statement-with-ai.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Gilt">
-<meta property="og:title" content="Gilt — Private Expense & Budget Tracker for iPhone">
-<meta property="og:description" content="A personal finance tracker that lives in your own iCloud. Budgets, bills, net worth and AI-powered bank statement import. No servers, no tracking, no ads. 14-day free trial.">
-<meta property="og:url" content="https://gilt.money/index.html">
+<meta property="og:title" content="How to import any bank statement into a budget app (using the AI you already have) — Gilt Blog">
+<meta property="og:description" content="A practical guide to importing bank statements into a budget app without bank logins or aggregators — using Claude, ChatGPT or any AI assistant you already use.">
+<meta property="og:url" content="https://gilt.money/blog/import-bank-statement-with-ai.html">
 <meta property="og:image" content="https://gilt.money/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"MobileApplication","name":"Gilt: Expense & Budget Tracker",
-"operatingSystem":"iOS","applicationCategory":"FinanceApplication",
-"description":"A personal finance tracker that lives in your own iCloud. No servers, no tracking, no ads.",
-"offers":[{"@type":"Offer","price":"2.49","priceCurrency":"USD","category":"subscription"},
-{"@type":"Offer","price":"19.99","priceCurrency":"USD","category":"subscription"},
-{"@type":"Offer","price":"69.99","priceCurrency":"USD"}],
-"publisher":{"@type":"Organization","name":"Gilt","url":"https://gilt.money"}}
-</script>
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to import any bank statement into a budget app (using the AI you already have)",
+"datePublished":"2026-07-19","publisher":{"@type":"Organization","name":"Gilt","url":"https://gilt.money"},
+"mainEntityOfPage":"https://gilt.money/blog/import-bank-statement-with-ai.html"}</script>
 <style>
 :root{--gold:#D8A852;--gold-dark:#B98C36;--ink:#1d1d1f;--muted:#6e6e73;--bg:#faf8f2;--dark1:#201A10;--dark2:#3a2d18}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -87,41 +82,27 @@ footer a:hover{color:var(--gold-dark)}
   </ul>
 </nav></div></header>
 <main><div class="wrap">
+<p class="crumb"><a href="/">Home</a> → <a href="/blog/">Blog</a> → How to import any bank statement into a budget app (using the AI you already have)</p>
+<article><h1>How to import any bank statement into a budget app (using the AI you already have)</h1><p class="meta">2026-07-19 · 6 min read</p>
+<p>Every budget app faces the same cold-start problem: your financial life already exists, in a bank, as months of transactions — and typing it in by hand is where most people give up. The industry's standard answer is “connect your bank,” which quietly means handing your online-banking credentials to a third-party aggregator and letting your transaction history flow through servers you've never heard of.</p>
+<p>There's a better way, and it became possible only recently: <strong>the AI assistant you already use is extremely good at reading bank statements.</strong></p>
+<h2>The idea</h2>
+<p>Any bank in the world can export a statement — PDF, CSV, sometimes Excel. Those files are messy and every bank formats them differently, which is exactly the kind of unstructured-to-structured problem modern AI models solve in seconds. So instead of building fragile bank integrations, Gilt does something simpler:</p>
+<ul class="checks">
+<li>Gilt gives you a <strong>prepared prompt</strong> that describes precisely the file format it can verify and import — columns, dates, currencies, signs.</li>
+<li>You hand that prompt, together with your statement, to <strong>your own AI</strong> — Claude, ChatGPT, whichever assistant you already have, in their app, under your account.</li>
+<li>The AI returns a structured file. Gilt <strong>validates every row</strong> — dates, amounts, duplicates, balances — and shows you the result for review before a single transaction is saved.</li>
+</ul>
+<h2>Why this is more private than “connecting your bank”</h2>
+<p>Bank-linking flows route your data through an aggregator's infrastructure and often require your actual banking credentials. With the bring-your-own-AI approach, exactly two parties see your statement: your bank, which already has it, and the AI provider <em>you</em> chose and already trust with your questions. Gilt's own app makes zero network calls to any AI service — it just verifies a file that never leaves your phone.</p>
+<h2>Why it's more universal</h2>
+<p>Aggregators cover a few thousand banks, mostly in the US and Western Europe. Statements exist everywhere. A small bank in Armenia, a neobank in Brazil, a credit union with a website from 2009 — if it can produce a PDF, this works. That's not a corner case; for most of the world, it's the only way any budget app will ever import their data.</p>
+<h2>What review-before-save looks like</h2>
+<p>AI models are good, but “good” isn't “trusted with your ledger.” That's why the import screen shows every parsed transaction — amount, date, category suggestion — and nothing is written until you confirm. Bad row? Fix or skip it. The AI does the tedious part; you keep the authority.</p>
+<h2>Six statements, six accounts, one evening</h2>
+<p>In practice, importing a year of history across several accounts takes an evening of coffee-length sessions: export statement, paste prompt, drop the file back into Gilt, review, done. Compare that to retyping a thousand transactions — or to giving a data broker your bank password.</p>
 
-<div class="dark" style="text-align:center;margin-top:34px;padding:56px 26px">
-  <p style="color:var(--gold);font-weight:700;letter-spacing:.4px">🔒 NO SERVERS · NO TRACKING · NO ADS</p>
-  <h1 style="color:#fff;max-width:760px;margin:12px auto">A finance tracker that lives in <em style="color:var(--gold)">your own iCloud</em></h1>
-  <p style="color:#e8ddc8;max-width:600px;margin:14px auto 6px;font-size:19px">Accounts, budgets, bills and net worth — beautifully native on iPhone. Your data syncs through your personal iCloud and never touches anyone's servers. Not even ours.</p>
-  <p style="color:var(--gold);font-weight:700;margin:16px 0 4px">Try everything free for 14 days · Coming soon to the App Store</p>
-  <div class="shots-row" style="justify-content:center;margin-top:30px">
-    <img class="shot" src="/assets/budgets.png" alt="Budget screen in Gilt for iPhone" loading="lazy">
-    <img class="shot" src="/assets/overview.png" alt="Overview screen in Gilt: net worth and cash flow" loading="lazy">
-    <img class="shot" src="/assets/reports.png" alt="Spending reports in Gilt" loading="lazy">
-  </div>
-</div>
-
-<h2>Everything a real tracker needs</h2>
-<p class="sub">No feature checklists held hostage. During the trial — and on every paid plan — you get the whole app.</p>
-<div class="grid">
-  <div class="card"><h3>🏦 Unlimited accounts</h3><p>Checking, savings, cash, credit cards with utilization, loans with payoff schedules, deposits with interest.</p></div>
-  <div class="card"><h3>📊 Budgets with honest pace</h3><p>Per-category budgets that tell you where you'll land at month end — not just where you are today.</p></div>
-  <div class="card"><h3>🤖 <a href="/import.html">Bring your own AI</a></h3><p>Import any bank statement in the world by handing it to the AI you already use. You review everything before it's saved.</p></div>
-  <div class="card"><h3>👨‍👩‍👧 <a href="/family.html">Family plan</a></h3><p>One household budget with your partner through your own iCloud accounts — and one subscription via Apple Family Sharing.</p></div>
-  <div class="card"><h3>💱 Multi-currency, done right</h3><p>Accounts in different currencies, transfers between them, exchange rates handled properly.</p></div>
-  <div class="card"><h3>🔐 <a href="/privacy-first.html">Private by architecture</a></h3><p>Face ID lock. CloudKit private database. App Store privacy label: “Data Not Collected.”</p></div>
-</div>
-
-<div class="dark"><h2>Why people switch to Gilt</h2>
-<p>Most finance apps want your bank passwords, run your data through their servers, and sell you an AI chatbot subscription on top. Gilt is built the opposite way: your data stays in your iCloud, the AI is the one you already have, and the whole app costs less than a coffee a month.</p>
-<p><a href="/pricing.html">See simple, honest pricing →</a></p></div>
-
-<h2>From the blog</h2>
-<div class="grid">
-  <div class="card"><h3><a href="/blog/import-bank-statement-with-ai.html">How to import any bank statement into a budget app</a></h3><p>No bank logins, no aggregators — the AI you already use does the work, and you stay in control.</p></div>
-  <div class="card"><h3><a href="/blog/what-no-servers-means.html">What “no servers” actually means</a></h3><p>Privacy policies promise. Architecture proves. Here's the difference.</p></div>
-  <div class="card"><h3><a href="/blog/family-budget-iphone.html">A family budget on iPhone — without sharing passwords</a></h3><p>Two people, one clear picture of the money, zero shared logins.</p></div>
-</div>
-
+<div class="dark"><h2>Try it yourself</h2><p>Gilt is coming soon to the App Store — every plan starts with a 14-day free trial of everything. <a href="/pricing.html">See pricing →</a></p></div></article>
 </div></main>
 <footer><div class="wrap">
   <div class="cols">
