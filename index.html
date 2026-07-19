@@ -227,10 +227,9 @@ gsap.from('#hl1',{yPercent:110,duration:1,ease:'power3.out',delay:.1});
 gsap.from('#hl2',{yPercent:110,duration:1,ease:'power3.out',delay:.28});
 gsap.from('.badge,.sub,.trial',{opacity:0,y:18,duration:.9,stagger:.12,delay:.5});
 gsap.fromTo('#heroPhone',{rotateX:38,y:160,scale:.86,opacity:0},{rotateX:12,y:0,scale:1,opacity:1,duration:1.4,ease:'power3.out',delay:.55});
-/* hero scroll-out */
-gsap.timeline({scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}})
- .to('#heroPhone',{rotateX:0,y:-80,scale:1.06,ease:'none'},0)
- .to('#hero .h1,#hero .sub,#hero .trial,#hero .badge',{y:-120,opacity:0,ease:'none'},0);
+/* hero scroll-out: gentle phone parallax only — text leaves naturally with the page */
+gsap.to('#heroPhone',{rotateX:0,y:-60,scale:1.03,ease:'none',
+ scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}});
 /* vault: pin + word reveal + particle gather */
 const words = document.querySelectorAll('#vaultText .w');
 ScrollTrigger.create({trigger:'#vault',start:'top top',end:'+=160%',scrub:true,pin:true,
