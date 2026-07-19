@@ -92,6 +92,14 @@ footer{border-top:1px solid var(--line);padding:44px 34px 56px;color:var(--dim);
 footer h4{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--gold);margin-bottom:10px}
 footer ul{list-style:none}footer li{margin:7px 0}
 footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--goldb)}
+
+#fx .keeper{color:var(--dim);font-size:14px;letter-spacing:2.4px;text-transform:uppercase;margin-bottom:20px}
+#fxVal{font-family:'Fraunces',serif;font-weight:650;color:var(--ink);letter-spacing:-1px;display:inline-block;min-width:5ch}
+#fxVal .sym{color:var(--goldb);font-style:italic;margin-right:.12em}
+#fxGlyphs{position:absolute;inset:0;pointer-events:none}
+#fxGlyphs span{position:absolute;left:50%;top:50%;font-family:'Fraunces',serif;color:var(--gold);opacity:0;will-change:transform,opacity;text-shadow:0 0 22px rgba(216,168,82,.45)}
+#fxNote{color:var(--dim);font-size:13px;letter-spacing:1.4px;text-transform:uppercase;margin-top:26px}
+
 @media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none} #dust,.grain{display:none} }
 </style></head><body>
 <canvas id="dust"></canvas><div class="grain"></div>
@@ -149,6 +157,16 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--gold
 </div>
 </div></section>
 
+
+<section class="scene" id="fx"><div class="pinbox">
+  <div id="fxGlyphs"></div>
+  <p class="keeper">Any currency. One truth.</p>
+  <div class="h1" style="font-size:clamp(52px,9vw,116px);line-height:1"><span id="fxVal"><span class="sym">€</span>7 853,15</span></div>
+  <p class="sub" style="margin-top:20px">Accounts keep their own currencies. Transfers never invent money out of exchange rates. Reports agree on one honest total — with <em style="color:var(--goldb);font-style:italic">live FX rates</em>, synced to your device.</p>
+  <p style="margin-top:8px"><a href="/multi-currency.html" style="color:var(--goldb)">How multi-currency works →</a></p>
+  <p id="fxNote">USD · EUR · AMD · GBP · JPY · +150 more</p>
+</div></section>
+
 <section class="scene" id="family">
   <h2 class="st reveal">One household. <em style="color:var(--goldb);font-style:italic">Two phones.</em></h2>
   <p class="lead reveal">Share the ledger with your partner through your own iCloud accounts — and share one subscription with up to five people via Apple Family Sharing. No shared passwords, no server in the middle.</p>
@@ -165,9 +183,9 @@ footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--gold
   <p class="lead reveal">Every plan starts with 14 days of everything, free. Cancel anytime. Your data stays exportable forever — it is never held hostage.</p>
   <div class="pricing">
     <div class="pcard reveal"><h3>Solo</h3><div class="amount">$19.99</div><div class="per">per year — about $1.67/mo<br>or $2.49 month-to-month</div>
-      <ul><li>The complete tracker</li><li>AI import & export</li><li>Widgets, Face ID, CSV</li></ul></div>
+      <ul><li>The complete tracker</li><li>AI import & export</li><li>Multi-currency · live FX rates</li><li>Widgets, Face ID, CSV</li></ul></div>
     <div class="pcard f reveal"><span class="tag">Most popular</span><h3>Family</h3><div class="amount">$36.99</div><div class="per">per year — about $3.08/mo<br>or $4.49 month-to-month</div>
-      <ul><li>Everything in Solo</li><li>Shared household budget</li><li>Up to 5 via Apple Family Sharing</li></ul></div>
+      <ul><li>Everything in Solo</li><li>Shared household budget</li><li>Mixed-currency accounts for the whole family</li><li>Up to 5 via Apple Family Sharing</li></ul></div>
     <div class="pcard reveal"><h3>Lifetime</h3><div class="amount">$69.99</div><div class="per">one-time · launch offer</div>
       <ul><li>Everything in Solo, forever</li><li>Personal to your Apple ID</li><li>No subscription</li></ul></div>
   </div>
@@ -237,6 +255,31 @@ path.style.strokeDasharray=len; path.style.strokeDashoffset=len;
 gsap.to(path,{strokeDashoffset:0,scrollTrigger:{trigger:'#famStage',start:'top 75%',end:'top 30%',scrub:true}});
 gsap.fromTo('#famL',{rotateY:18,x:-30},{rotateY:-8,x:0,scrollTrigger:{trigger:'#famStage',start:'top 85%',end:'top 30%',scrub:true}});
 gsap.fromTo('#famR',{rotateY:-18,x:30},{rotateY:8,x:0,scrollTrigger:{trigger:'#famStage',start:'top 85%',end:'top 30%',scrub:true}});
+
+/* fx scene: floating currency glyphs converge to a ring; amount morphs through currencies */
+(function(){
+ const syms=['$','€','֏','£','¥','₩','zł','kr','₺','₫','R$','฿','₴','Rp'];
+ const wrap=document.getElementById('fxGlyphs');
+ const glyphs=syms.map((s,i)=>{const el=document.createElement('span');el.textContent=s;
+   el.style.fontSize=(22+Math.random()*30)+'px';wrap.appendChild(el);return el});
+ const R=Math.min(innerWidth,620)*0.42;
+ glyphs.forEach((el,i)=>{
+   const a=(i/glyphs.length)*Math.PI*2;
+   const sx=(Math.random()-.5)*innerWidth*1.1, sy=(Math.random()-.5)*innerHeight*1.0;
+   gsap.fromTo(el,{x:sx,y:sy,opacity:0,rotate:(Math.random()-.5)*70,filter:'blur(5px)'},
+     {x:Math.cos(a)*R,y:Math.sin(a)*R*0.62,opacity:.85,rotate:0,filter:'blur(0px)',ease:'none',
+      scrollTrigger:{trigger:'#fx',start:'top top',end:'+=180%',scrub:1}});
+ });
+ const vals=[['€','7 853,15'],['$','8 540.20'],['֏','3 245 600'],['£','6 691.40'],['¥','1 264 900']];
+ const fxVal=document.getElementById('fxVal'); let cur=0;
+ ScrollTrigger.create({trigger:'#fx',start:'top top',end:'+=180%',scrub:true,pin:true,
+  onUpdate:self=>{
+   const idx=Math.min(vals.length-1,Math.floor(self.progress*vals.length));
+   if(idx!==cur){cur=idx;
+     gsap.fromTo(fxVal,{opacity:.15,filter:'blur(7px)',scale:.97},{opacity:1,filter:'blur(0px)',scale:1,duration:.5,ease:'power2.out'});
+     fxVal.innerHTML='<span class="sym">'+vals[idx][0]+'</span>'+vals[idx][1];}
+  }});
+})();
 /* generic reveals */
 document.querySelectorAll('.reveal').forEach(el=>{
  gsap.to(el,{opacity:1,y:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 86%'}})});
