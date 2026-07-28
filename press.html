@@ -84,6 +84,12 @@ summary::marker{color:var(--gold)}
 details p{color:var(--muted);font-size:14.5px;margin-top:10px}
 .shot{width:min(280px,78vw);border-radius:34px;border:1px solid var(--line2);outline:6px solid #0B0804;box-shadow:0 30px 70px rgba(0,0,0,.5), 0 0 60px rgba(216,168,82,.10)}
 .shots-row{display:flex;gap:26px;flex-wrap:wrap;margin:28px 0}
+/* App Store marketing slides: light, full-bleed artwork — no device framing */
+.shots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:18px;margin:28px 0}
+.shots-grid a{display:block;line-height:0;border-radius:14px;overflow:hidden;transition:.2s}
+.shots-grid a:hover{transform:translateY(-3px)}
+.shot-mkt{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line);box-shadow:0 14px 34px rgba(0,0,0,.42);transition:.2s}
+.shots-grid a:hover .shot-mkt{border-color:var(--line2);box-shadow:0 18px 44px rgba(0,0,0,.5)}
 footer{margin-top:90px;padding:44px 0 54px;border-top:1px solid var(--line);color:var(--dim);font-size:14px;background:rgba(15,11,5,.5)}
 footer .cols{display:flex;gap:56px;flex-wrap:wrap}
 footer h4{font-size:11.5px;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:10px;font-weight:700}
@@ -148,13 +154,28 @@ section p, .section p{margin-left:auto;margin-right:auto}
 <h2>The story</h2>
 <p>Gilt is built by a husband-and-wife team who wanted a finance tracker with two properties that rarely coexist: real depth (budgets, net worth, multi-currency, family sharing) and real privacy. Instead of connecting to banks through aggregators or bundling yet another paid chatbot, Gilt made a bet: your iPhone and your iCloud are enough to run your finances, and the AI you already pay for is enough to automate them.</p>
 
-<h2>Screenshots & brand</h2>
-<div class="shots-row">
-  <img class="shot" src="/assets/overview.png" alt="Gilt overview screen" loading="lazy">
-  <img class="shot" src="/assets/budgets.png" alt="Gilt budgets screen" loading="lazy">
-  <img class="shot" src="/assets/reports.png" alt="Gilt reports screen" loading="lazy">
+<h2>Download the press kit</h2>
+<p style="text-align:center"><a class="btn" href="/assets/press/gilt-press-kit.zip" download>Download full press kit (ZIP, 9 MB)</a></p>
+<p class="note" style="text-align:center">Contains this page's copy as <strong>PRESS-KIT.md</strong>, the app icon, all 10 App&nbsp;Store screenshots at full resolution, and 5 unframed app screens for editorial use.<br>
+App icon on its own: <a href="/assets/press/icon-1024.png">icon-1024.png</a> (1024×1024 PNG).</p>
+
+<h2>Screenshots</h2>
+<div class="shots-grid">
+  <a href="/assets/press/screenshots/01-overview-your-money-clearly.png"><img class="shot-mkt" src="/assets/press/screenshots/01-overview-your-money-clearly.png" alt="Your money, clearly — Gilt overview screen showing net worth and monthly cash flow" loading="lazy" width="368" height="800"></a>
+  <a href="/assets/press/screenshots/02-three-taps.png"><img class="shot-mkt" src="/assets/press/screenshots/02-three-taps.png" alt="Adding a transaction in Gilt in three taps" loading="lazy" width="368" height="800"></a>
+  <a href="/assets/press/screenshots/03-spending-in-seconds.png"><img class="shot-mkt" src="/assets/press/screenshots/03-spending-in-seconds.png" alt="Gilt spending breakdown by category" loading="lazy" width="368" height="800"></a>
+  <a href="/assets/press/screenshots/04-data-not-collected.png"><img class="shot-mkt" src="/assets/press/screenshots/04-data-not-collected.png" alt="“Data Not Collected” — Gilt's App Store privacy label" loading="lazy" width="368" height="800"></a>
+  <a href="/assets/press/screenshots/05-budgets-real-life.png"><img class="shot-mkt" src="/assets/press/screenshots/05-budgets-real-life.png" alt="Gilt budgets that match real life" loading="lazy" width="368" height="800"></a>
+  <a href="/assets/press/screenshots/06-every-account.png"><img class="shot-mkt" src="/assets/press/screenshots/06-every-account.png" alt="Every account in one place in Gilt" loading="lazy" width="368" height="800"></a>
+  <a href="/assets/press/screenshots/07-any-currency.png"><img class="shot-mkt" src="/assets/press/screenshots/07-any-currency.png" alt="Gilt multi-currency accounts with live exchange rates" loading="lazy" width="368" height="800"></a>
+  <a href="/assets/press/screenshots/08-reports-see-where-it-goes.png"><img class="shot-mkt" src="/assets/press/screenshots/08-reports-see-where-it-goes.png" alt="Gilt reports — see where your money goes" loading="lazy" width="368" height="800"></a>
+  <a href="/assets/press/screenshots/09-household-sharing.png"><img class="shot-mkt" src="/assets/press/screenshots/09-household-sharing.png" alt="Gilt household sharing through your own iCloud" loading="lazy" width="368" height="800"></a>
+  <a href="/assets/press/screenshots/10-byo-ai.png"><img class="shot-mkt" src="/assets/press/screenshots/10-byo-ai.png" alt="Gilt bring-your-own-AI bank statement import" loading="lazy" width="368" height="800"></a>
 </div>
-<p class="note">Right-click any image to save. Brand color: gold #D8A852 on ink #201A10. Name is “Gilt” — one word, capital G.</p>
+<p class="note">The “Gilded Clarity” set, as used on the App Store listing. Shown here at web size — full resolution (1320×2868) is in the ZIP, along with 5 unframed app screens.</p>
+
+<h2>Brand</h2>
+<p class="note">Brand color: gold #D8A852 on ink #201A10. Name is “Gilt” — one word, capital G.</p>
 
 </div></main>
 <footer><div class="wrap">
