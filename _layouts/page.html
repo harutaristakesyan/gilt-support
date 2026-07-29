@@ -29,7 +29,7 @@
 {% endif %}{% feed_meta %}
 <link rel="stylesheet" href="/assets/fonts.css">
 <link rel="stylesheet" href="/assets/site.css">
-{% if page.head_extra %}{{ page.head_extra }}{% endif %}</head><body>
+{% include analytics.html %}{% if page.head_extra %}{{ page.head_extra }}{% endif %}</head><body>
 <a class="skip" href="#main">Skip to content</a>
 {% include header.html %}<main id="main"><div class="wrap">
 {{ content }}</div></main>
