@@ -50,9 +50,13 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
 
+# rates/latest.json is deliberately NOT excluded: it is the published daily
+# exchange-rate snapshot the Gilt app reads, and it has no front matter, so
+# Jekyll copies it through byte for byte. See scripts/build_rates.py.
 exclude:
   - CLAUDE.md
   - Gemfile
   - Gemfile.lock
   - README.md
+  - scripts
   - vendor
