@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{{ page.title }}</title>
+<title>{{ page.title }}{{ page.title_suffix | default: site.title_suffix }}</title>
 <meta name="description" content="{{ page.description }}">
 <link rel="canonical" href="{{ site.url }}{{ page.canonical | default: page.url }}">
 <meta property="og:type" content="{{ page.og_type | default: 'website' }}">{% if page.noindex %}
 <meta name="robots" content="noindex,follow">{% endif %}
 <meta property="og:site_name" content="Gilt">
-<meta property="og:title" content="{{ page.title }}">
+<meta property="og:title" content="{{ page.title }}{{ page.title_suffix | default: site.title_suffix }}">
 <meta property="og:description" content="{{ page.description }}">
 <meta property="og:url" content="{{ site.url }}{{ page.canonical | default: page.url }}">
 <meta property="og:image" content="{{ site.url }}/assets/og.png">

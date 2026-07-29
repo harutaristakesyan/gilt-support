@@ -8,6 +8,9 @@
 url: https://gilt.money
 title: Gilt
 description: A private expense and budget tracker for iPhone.
+# Appended to every page <title>. A page may override with its own
+# `title_suffix:` (pricing and faq carry the longer keyword form).
+title_suffix: " — Gilt"
 
 # Nothing here needs Markdown or Sass processing; pages are hand-written HTML.
 markdown: kramdown
