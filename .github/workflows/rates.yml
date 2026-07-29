@@ -1,0 +1,64 @@
+# Publishes rates/latest.json — one exchange-rate snapshot per UTC day, which is
+# what makes two members of a Gilt household convert their shared ledger to
+# byte-identical totals (HAR-64).
+#
+# This is a static file, not a service: it is the same bytes for every reader and
+# no request to it carries any user data.
+#
+# 06:10 UTC: the ECB publishes its reference rates around 16:00 CET the previous
+# business day, so by now the provider is serving a settled table rather than one
+# that changes under us mid-morning.
+name: Publish rates
+
+on:
+  schedule:
+    - cron: "10 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write        # commit the snapshot back to main
+  actions: write         # dispatch the Pages deploy below
+
+# Never two publishers at once — the second would race the first's commit.
+concurrency:
+  group: rates
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Fails the run — loudly, as a red scheduled job — when the provider's
+      # reference date is more than 48h old. A silently stale snapshot is worse
+      # than none: the app would keep trusting it for another day.
+      - name: Build the snapshot
+        run: python3 scripts/build_rates.py
+
+      - name: Commit if it changed
+        id: commit
+        run: |
+          # --porcelain, not `git diff --quiet`: the latter reports "no change"
+          # for a file that does not exist in the index yet, which would skip the
+          # very first publish.
+          if [ -z "$(git status --porcelain -- rates/latest.json)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No change — today's snapshot is already published."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rates/latest.json
+          git commit -m "chore(rates): publish snapshot $(date -u +%F)"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # A push made with GITHUB_TOKEN deliberately does not trigger other
+      # workflows, so the site would build the old file — or not at all. Ask for
+      # the deploy explicitly instead.
+      - name: Deploy the site
+        if: steps.commit.outputs.changed == 'true'
+        run: gh workflow run deploy.yml --ref main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
