@@ -1,0 +1,8 @@
+/* ---------------------------- reset & document ---------------------------- */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);line-height:1.68;background:var(--bg);position:relative}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:
+ radial-gradient(900px 500px at 80% -10%, rgba(216,168,82,.13), transparent 60%),
+ radial-gradient(700px 420px at -10% 30%, rgba(216,168,82,.07), transparent 55%),
+ var(--bg)}

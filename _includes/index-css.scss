@@ -1,7 +1,9 @@
+@use "tokens";
 // Inline critical CSS for the homepage. Compiled by Jekyll's dart-sass at
 // build time and injected into <style> by index.html, so the source stays a
 // real file while the page still ships zero extra CSS requests.
-:root{--bg:#0F0B05;--gold:#D8A852;--goldb:#E9C57C;--ink:#F2E9D8;--muted:#B7A98C;--dim:#8E8163;--line:rgba(216,168,82,.16);--line2:rgba(216,168,82,.35)}
+/* Homepage theme: darker ground, slightly stronger hairline. */
+:root{--bg:#0F0B05;--line2:rgba(216,168,82,.35)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:auto}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.65}

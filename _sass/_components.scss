@@ -1,0 +1,41 @@
+/* ------------------------------- components -------------------------------- */
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:20px;padding:26px 28px;margin:18px 0;transition:.22s}
+.card:hover{border-color:var(--line2);transform:translateY(-2px)}
+.card h3{margin-top:0;font-size:16.5px}
+.card h3 a{color:var(--goldb);text-decoration:none}
+/* Blog index: post titles are top-level sections, so <h2> — every property the
+   global h2 rule sets is overridden back to the card-heading look. */
+.card h2{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-size:16.5px;font-weight:650;margin:0 0 8px;letter-spacing:normal;text-align:left;color:var(--ink)}
+.card h2 a{color:var(--goldb);text-decoration:none}
+.card p{color:var(--muted);font-size:14.5px;margin-bottom:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:26px 0}
+.grid .card{margin:0}
+
+.btn{display:inline-block;background:var(--gold);color:var(--ink-on-gold);padding:14px 30px;border-radius:99px;text-decoration:none;font-weight:700;margin:14px 0;font-size:15.5px;box-shadow:0 8px 30px rgba(216,168,82,.25);transition:.2s}
+.btn:hover{background:var(--goldb);transform:translateY(-1px)}
+
+/* Feature panel. `a:not(.btn)` keeps the gold-on-gold link colour off any
+   button placed inside — the reason this rule once needed !important. */
+.dark{background:linear-gradient(150deg,#241B0D,#1C1509 65%,#2A1F0E);border:1px solid var(--line2);border-radius:26px;padding:42px 38px;margin:48px 0;position:relative;overflow:hidden}
+.dark::after{content:'';position:absolute;width:520px;height:520px;right:-160px;top:-260px;background:radial-gradient(circle,rgba(216,168,82,.16),transparent 62%);pointer-events:none}
+.dark h2{color:var(--ink);margin-top:0}
+.dark p{color:var(--muted)}
+.dark a:not(.btn){color:var(--goldb)}
+
+/* Wide tables scroll inside their own box instead of widening the page. */
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:22px 0}
+.tablewrap table{margin:0}
+table{border-collapse:collapse;width:100%;margin:22px 0;font-size:15px;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);color:var(--muted)}
+tr:last-child td{border-bottom:none}
+th{color:var(--dim);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.9px;background:rgba(216,168,82,.05)}
+td strong{color:var(--goldb)}
+
+details{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin:10px 0;transition:.2s}
+details:hover,details[open]{border-color:var(--line2)}
+summary{font-weight:600;cursor:pointer;color:var(--ink);font-size:15.5px}
+summary::marker{color:var(--gold)}
+details p{color:var(--muted);font-size:14.5px;margin-top:10px}
+
+.shot{width:min(280px,78vw);border-radius:34px;border:1px solid var(--line2);outline:6px solid #0B0804;box-shadow:0 30px 70px rgba(0,0,0,.5), 0 0 60px rgba(216,168,82,.10)}
+.shots-row{display:flex;gap:26px;flex-wrap:wrap;margin:28px 0}
