@@ -1,0 +1,8 @@
+# Primary navigation. Order here is the order rendered in the header.
+- { url: "/import.html",         key: "import",         label: "AI Import" }
+- { url: "/family.html",         key: "family",         label: "Family" }
+- { url: "/privacy-first.html",  key: "privacy-first",  label: "Privacy" }
+- { url: "/multi-currency.html", key: "multi-currency", label: "Currencies" }
+- { url: "/pricing.html",        key: "pricing",        label: "Pricing" }
+- { url: "/faq.html",            key: "faq",            label: "FAQ" }
+- { url: "/blog/",               key: "blog",           label: "Blog" }

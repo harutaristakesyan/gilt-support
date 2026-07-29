@@ -1,8 +1,2 @@
-<li><a href="/import.html"{% if page.nav == "import" %} aria-current="page"{% endif %}>AI Import</a></li>
-<li><a href="/family.html"{% if page.nav == "family" %} aria-current="page"{% endif %}>Family</a></li>
-<li><a href="/privacy-first.html"{% if page.nav == "privacy-first" %} aria-current="page"{% endif %}>Privacy</a></li>
-<li><a href="/multi-currency.html"{% if page.nav == "multi-currency" %} aria-current="page"{% endif %}>Currencies</a></li>
-<li><a href="/pricing.html"{% if page.nav == "pricing" %} aria-current="page"{% endif %}>Pricing</a></li>
-<li><a href="/faq.html"{% if page.nav == "faq" %} aria-current="page"{% endif %}>FAQ</a></li>
-<li><a href="/blog/"{% if page.nav == "blog" %} aria-current="page"{% endif %}>Blog</a></li>
-<li><a href="mailto:support@gilt.money">Support</a></li>
+{% for item in site.data.nav %}<li><a href="{{ item.url }}"{% if page.nav == item.key %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+{% endfor %}<li><a href="mailto:support@gilt.money">Support</a></li>

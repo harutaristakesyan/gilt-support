@@ -30,8 +30,22 @@ sass:
   style: compressed
   sourcemap: never
 
+# Posts keep their existing /blog/*.html URLs. Values shared by every post
+# live here instead of being repeated in each file.
+#
+# NOTE: no blanket `type: pages` default — index.html and the Search Console
+# verification file both carry front matter and must NOT get a layout.
+defaults:
+  - scope: { path: "", type: "posts" }
+    values:
+      layout: "post"
+      permalink: "/blog/:title.html"
+      og_type: "article"
+      nav: "blog"
+
 plugins:
   - jekyll-sitemap
+  - jekyll-feed
 
 exclude:
   - CLAUDE.md

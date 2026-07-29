@@ -2,7 +2,6 @@
 layout: page
 title: "Blog — Gilt"
 description: "Guides and essays on private personal finance: AI-powered statement import, serverless app architecture, family budgets on iPhone."
-canonical: "/blog/"
 nav: "blog"
 breadcrumb:
   - name: "Blog"
@@ -11,7 +10,7 @@ breadcrumb:
 <p class="crumb"><a href="/">Home</a> → Blog</p>
 <h1>The Gilt <em>blog</em></h1>
 <p class="sub">Guides and essays on running your money privately.</p>
-<div class="card"><h2><a href="/blog/import-bank-statement-with-ai.html">How to import any bank statement into a budget app (using the AI you already have)</a></h2><p>2026-07-19 · 6 min — No bank logins, no aggregators: the practical guide to AI-assisted import.</p></div>
-<div class="card"><h2><a href="/blog/what-no-servers-means.html">What “no servers” actually means for your financial data</a></h2><p>2026-07-19 · 5 min — Privacy policies promise. Architecture proves.</p></div>
-<div class="card"><h2><a href="/blog/family-budget-iphone.html">A family budget on iPhone — without sharing passwords</a></h2><p>2026-07-19 · 5 min — One ledger, two phones, separate identities.</p></div>
+{% for post in site.posts %}
+<div class="card"><h2><a href="{{ post.url }}">{{ post.headline }}</a></h2><p>{{ post.date | date: "%Y-%m-%d" }} · {{ post.read_time }} min — {{ post.summary }}</p></div>
+{% endfor %}
 
