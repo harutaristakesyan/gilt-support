@@ -1,0 +1,41 @@
+# Gilt — GitHub Pages / Jekyll configuration.
+#
+# Only the 12 content pages are templated (layout: page). index.html and
+# privacy.html carry no front matter, so Jekyll copies them through byte for
+# byte — index.html is the standalone scroll-animated page with its own CSS,
+# privacy.html is the deliberately plain legal page.
+
+url: https://gilt.money
+title: Gilt
+description: A private expense and budget tracker for iPhone.
+
+# Nothing here needs Markdown or Sass processing; pages are hand-written HTML.
+markdown: kramdown
+
+# sitemap.xml is generated, not hand-maintained, so it can never go stale.
+# google<...>.html carries `sitemap: false` to keep the Search Console
+# verification file out of it.
+#
+# Deliberately NOT enabled:
+#   jekyll-seo-tag  — would append "| Gilt" to every title, drop og:image,
+#                     downgrade twitter:card to "summary", and emit a second
+#                     JSON-LD block beside the hand-written FAQPage/BlogPosting.
+#   jekyll-feed     — blog posts are pages, not _posts, so it emits an empty
+#                     feed. Needs a URL-preserving move to _posts first.
+
+# Jekyll's built-in dart-sass compiles assets/site.scss -> /assets/site.css,
+# minified. The source keeps its comments and formatting; only the
+# delivered file is squeezed.
+sass:
+  style: compressed
+  sourcemap: never
+
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - CLAUDE.md
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor

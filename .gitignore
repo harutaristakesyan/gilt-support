@@ -1,0 +1,10 @@
+# Jekyll build output — GitHub Pages builds this itself; never commit it.
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# Local scratch (see CLAUDE.md)
+task_plan.md
+progress.md
+
+.DS_Store

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}">
+<link rel="canonical" href="{{ site.url }}{{ page.canonical }}">
+<meta property="og:type" content="{{ page.og_type | default: 'website' }}">{% if page.noindex %}
+<meta name="robots" content="noindex,follow">{% endif %}
+<meta property="og:site_name" content="Gilt">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:url" content="{{ site.url }}{{ page.canonical }}">
+<meta property="og:image" content="{{ site.url }}/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#201A10">
+{% if page.jsonld %}<script type="application/ld+json">
+{{ page.jsonld }}</script>
+{% endif %}{% if page.breadcrumb %}<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ site.url }}/"}{% for c in page.breadcrumb %},{"@type":"ListItem","position":{{ forloop.index | plus: 1 }},"name":"{{ c.name }}"{% if c.url %},"item":"{{ site.url }}{{ c.url }}"{% endif %}}{% endfor %}]}</script>
+{% endif %}<link rel="stylesheet" href="/assets/fonts.css">
+<link rel="stylesheet" href="/assets/site.css">
+{% if page.head_extra %}{{ page.head_extra }}{% endif %}</head><body>
+<a class="skip" href="#main">Skip to content</a>
+{% include header.html %}<main id="main"><div class="wrap">
+{{ content }}</div></main>
+{% include footer.html %}</body></html>

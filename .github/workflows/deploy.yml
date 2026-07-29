@@ -1,0 +1,57 @@
+# Builds the site with the Jekyll version pinned in Gemfile.lock (4.4.x) and
+# publishes it to GitHub Pages.
+#
+# This replaces Pages' built-in "deploy from a branch" build, which is locked to
+# Jekyll 3.9.x. One manual step is required once, in the repo:
+#   Settings → Pages → Build and deployment → Source → "GitHub Actions"
+# Until that is switched, this workflow runs but nothing it produces goes live.
+#
+# The custom domain (gilt.money) keeps working: CNAME is copied into _site by
+# Jekyll, and the domain stays set under Settings → Pages.
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let two deploys race; queue instead of cancelling a half-finished one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true          # installs gems and caches them
+
+      - uses: actions/configure-pages@v5
+
+      # No --baseurl: the site is served at a domain root and every internal
+      # path is already root-absolute, so a baseurl would be inert at best.
+      - run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      - uses: actions/upload-pages-artifact@v3   # defaults to ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
