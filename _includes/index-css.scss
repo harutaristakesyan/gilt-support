@@ -78,7 +78,7 @@ h1,.h1{font-family:'Fraunces',serif;font-weight:650;letter-spacing:-1px;line-hei
 #hero .trial{color:var(--goldb);font-weight:600;font-size:15px;margin-top:14px}
 .scrolldown{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);z-index:4;color:var(--dim);font-size:12px;letter-spacing:2px;text-transform:uppercase}
 .scrolldown::after{content:'';display:block;width:1px;height:34px;background:linear-gradient(var(--gold),transparent);margin:8px auto 0}
-.phone{width:min(320px,62vw);border-radius:44px;outline:7px solid #070502;border:1px solid var(--line2);box-shadow:0 60px 120px rgba(0,0,0,.6),0 0 90px rgba(216,168,82,.14);will-change:transform;display:block}
+.phone{width:min(320px,62vw);height:auto;border-radius:44px;outline:7px solid #070502;border:1px solid var(--line2);box-shadow:0 60px 120px rgba(0,0,0,.6),0 0 90px rgba(216,168,82,.14);will-change:transform;display:block}
 .bigline{font-family:'Fraunces',serif;font-size:clamp(34px,6.4vw,84px);font-weight:650;line-height:1.12;letter-spacing:-.8px}
 .bigline em{font-style:italic;color:var(--goldb)}
 .bigline .w{display:inline-block;opacity:.13;transition:none}
