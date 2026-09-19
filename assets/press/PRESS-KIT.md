@@ -12,9 +12,9 @@ Gilt is a personal finance tracker for iPhone that keeps your data yours: no ser
 
 Gilt is a personal finance tracker for iPhone built on a simple principle: your financial data belongs to you. Gilt has no backend — every transaction, budget and account lives in the user's private iCloud database, synced across their devices and shareable with family members. The App Store privacy label reads "Data Not Collected," because there is nothing to collect.
 
-Instead of asking users to hand over bank credentials to an aggregator, Gilt ships a BYO-AI import: the app generates a tailored prompt, the user runs it in their own ChatGPT or Claude, and Gilt validates and imports the result — statements become transactions without any third party seeing the data.
+Instead of asking users to hand over bank credentials to an aggregator, Gilt ships a BYO-AI import: the app generates a tailored prompt, the user runs it in their own ChatGPT or Claude, and Gilt validates and imports the result — statements become transactions without sending them to Gilt or its developer. If users choose ChatGPT or Claude for this import, they share the statement with that AI provider under its own privacy terms.
 
-Gilt supports multi-currency accounts with live exchange rates, budgets that match real life, and family sharing through iCloud. Gilt offers a 14-day free trial, then Gilt Pro — Solo $2.49/mo · $19.99/yr; Family $4.49/mo · $36.99/yr; Lifetime $69.99 one-time.
+Gilt supports multi-currency accounts with live exchange rates, budgets that match real life, and family sharing through iCloud. Gilt is free to start with every feature unlocked. After 10 transactions across 5 different days, recording new transactions needs Gilt Pro — Solo $2.49/mo · $19.99/yr; Family $4.49/mo · $36.99/yr; or Lifetime $69.99 one-time. The yearly plan includes a 14-day free trial; existing data remains browsable and exportable without paying.
 
 Gilt is built by a husband-and-wife team based in Armenia — Harut Aristakesyan writes the code, and the app runs the family's own budget every day.
 
@@ -24,7 +24,7 @@ Gilt is built by a husband-and-wife team based in Armenia — Harut Aristakesyan
 | -- | -- |
 | Name | Gilt: Expense & Budget Tracker |
 | Platform | iPhone (iOS 26+) |
-| Price | Free 14-day trial → Gilt Pro — Solo $2.49/mo · $19.99/yr; Family $4.49/mo · $36.99/yr; Lifetime $69.99 one-time |
+| Price | Free to start (10 transactions across 5 days); then Gilt Pro — Solo $2.49/mo · $19.99/yr; Family $4.49/mo · $36.99/yr; Lifetime $69.99 one-time. Yearly plan has a 14-day trial. |
 | Privacy | App Store label "Data Not Collected"; no servers; CloudKit private database |
 | Availability | 174 countries (App Store) |
 | App Store | https://apps.apple.com/app/id6790835958 |
@@ -42,7 +42,7 @@ Gilt is built by a husband-and-wife team based in Armenia — Harut Aristakesyan
 
 ## FAQ
 
-**Why no automatic bank sync?** Aggregator-based sync requires a server and access to bank credentials — that breaks "Data Not Collected." BYO-AI delivers 90% of the convenience without the compromise. (FinanceKit is on the roadmap.)
+**Why no automatic bank sync?** Aggregator-based sync requires a server and access to bank credentials — that breaks "Data Not Collected." BYO-AI is an optional way to import statements without giving bank credentials to Gilt. (FinanceKit is on the roadmap.)
 
 **What does the developer see?** Nothing. No accounts, no personal-data analytics, no servers.
 
@@ -50,7 +50,7 @@ Gilt is built by a husband-and-wife team based in Armenia — Harut Aristakesyan
 
 ## Assets in this kit
 
-- `screenshots/` — 10 App Store screenshots, iPhone 6.9" (1320×2868), the "Gilded Clarity" set used on the store listing.
+- `screenshots/` — 7 current App Store screenshots, iPhone 6.9" (1320×2868), from September 2026.
 - `raw-screens/` — 5 unframed app screens (1320×2868) for editorial use in articles and videos.
 
 Media may use all assets freely in coverage of Gilt.
