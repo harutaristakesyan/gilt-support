@@ -1,12 +1,14 @@
 /* -------------------------------- utilities ------------------------------- */
 .center{text-align:center}
+.tnum{font-variant-numeric:tabular-nums}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 
 /* ---------------------------------- a11y ---------------------------------- */
-::selection{background:rgba(216,168,82,.35)}
-:focus-visible{outline:2px solid var(--goldb);outline-offset:3px;border-radius:4px}
-.skip{position:absolute;left:-9999px;top:0;background:var(--gold);color:var(--ink-on-gold);padding:10px 18px;border-radius:0 0 10px 0;font-weight:700;z-index:100}
-.skip:focus{left:0}
+::selection{background:color-mix(in srgb,var(--ink) 18%,transparent)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:12px;top:-60px;background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:10px;font-weight:600;text-decoration:none;z-index:100}
+.skip:focus{top:12px}
 @media (prefers-reduced-motion: reduce){
- html{scroll-behavior:auto}
  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
 }
