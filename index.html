@@ -15,205 +15,419 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#0F0B05">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#F2F2F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C0D11" media="(prefers-color-scheme: dark)">
 <meta name="apple-itunes-app" content="app-id=6790835958">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"MobileApplication","name":"Gilt: Expense & Budget Tracker","operatingSystem":"iOS","applicationCategory":"FinanceApplication","description":"A personal finance tracker that lives in your own iCloud. No servers, no tracking, no ads.","offers":[{"@type":"Offer","price":"19.99","priceCurrency":"USD"}],"publisher":{"@type":"Organization","name":"Gilt","url":"https://gilt.money"}}
 </script>
-<link rel="stylesheet" href="/assets/fonts.css">
-<style>{% capture css %}{% include index-css.scss %}{% endcapture %}{{ css | scssify }}</style></head><body>
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/instrument-sans.woff2">
+<style>{% capture css %}{% include index-css.scss %}{% endcapture %}{{ css | scssify }}</style></head><body class="home">
 <a class="skip" href="#main">Skip to content</a>
-<canvas id="dust"></canvas><div class="grain"></div>
-<nav id="nav" aria-label="Main"><div class="wrap">
-  <a class="logo" href="/"><img src="/assets/icons/icon-192.png" width="26" height="26" alt="">Gilt</a>
-  <input class="navtoggle" type="checkbox" id="nav-toggle">
-  <label class="navburger" for="nav-toggle" aria-label="Menu"></label>
-  <ul>
-{% include nav-links.html %}  </ul>
-  <a class="cta" href="https://apps.apple.com/app/id6790835958"><span class="cta-lg">Download on the App Store</span><span class="cta-sm">Get Gilt</span></a>
-</div></nav>
+{% include header.html %}
 <main id="main">
+<div class="hero" id="top">
+  <div class="wrap">
+    <p class="mono">No servers · No tracking · No ads</p>
+    <h1>Your money,<br><span class="focus dim">clearly.</span></h1>
+    <div class="hero-row">
+      <p class="lede">A finance tracker that lives in your own iCloud. Budgets, net worth, and receipts read on your iPhone with Apple Intelligence.</p>
+      <div class="hero-cta">
+        <a class="btn" href="https://apps.apple.com/app/id6790835958">Download on the App Store</a>
+        <a class="textlink" href="#screens">See it on iPhone and Mac</a>
+        <p class="mono hero-meta">Free to start · No account · iOS 26+</p>
+      </div>
+    </div>
+  </div>
 
-<section class="scene" id="hero"><div class="pinbox">
-  <span class="badge hero-in" style="animation-delay:.05s">🔒 NO SERVERS · NO TRACKING · NO ADS</span>
-  <h1 class="h1 hero-in" style="animation-delay:.15s">
-    <span class="line"><span>Your money,</span></span>
-    <span class="line"><span><em>clearly.</em></span></span>
-  </h1>
-  <p class="sub hero-in" style="animation-delay:.28s">A finance tracker that lives in your own iCloud. Scroll — and watch it come together.</p>
-  <p class="trial hero-in" style="animation-delay:.4s">Now on the App Store · Free to start · iOS 26+</p>
-  <div id="phoneGlow"></div>
-  <div id="heroPhoneWrap"><img class="phone" id="heroPhone" src="/assets/overview.webp" width="720" height="1565" fetchpriority="high" alt="Gilt overview screen: net worth and monthly cash flow"></div>
-  <div id="shards" aria-hidden="true">
-    <div class="shard" data-x="-33" data-y="-17" data-r="-8"><span class="lbl">Net worth</span><b>€7 853,15</b></div>
-    <div class="shard" data-x="29" data-y="-22" data-r="7"><span class="lbl">Budget · July</span><b>€143,07 left</b><span class="bar"><i></i></span></div>
-    <div class="shard" data-x="-37" data-y="12" data-r="6"><span class="lbl">Siri</span><b>“How much did I spend?”</b></div>
-    <div class="shard" data-x="34" data-y="9" data-r="-6"><span class="lbl">Receipt</span><b>Read on your iPhone ✓</b></div>
-    <div class="shard" data-x="-24" data-y="27" data-r="-10"><span class="lbl">Currencies</span><b>€ ⇄ $ live rates</b></div>
-    <div class="shard" data-x="23" data-y="26" data-r="9"><span class="lbl">Recurring</span><b>Rent · in 4 days</b></div>
-  </div>
-</div></section>
+  <div class="film hero-film" id="heroFilm">
+    <video id="lake" muted playsinline preload="none" poster="/assets/film/lake-mist.jpg" aria-hidden="true" tabindex="-1"></video>
+    <div class="wrap">
+      <div class="film-note">
+        <p class="mono" id="filmHint">Scroll, and watch it clear</p>
+        <p>The card is live. Add an expense and the month recalculates in your browser. Nothing is sent anywhere.</p>
+      </div>
 
-<section class="scene" id="vault"><div class="pinbox">
-  <p class="keeper">The part that matters</p>
-  <div class="bigline" id="vaultText">
-    <div>Your data <em>only lives</em></div>
-    <div>in your own iCloud.</div>
-  </div>
-  <p class="sub" style="color:var(--muted);max-width:520px;margin-top:22px">No servers to breach. No account to create. No analytics watching. The App Store privacy label simply reads: <strong class="hl">“Data Not Collected.”</strong></p>
-  <div id="vaultCore">🔒</div>
-</div></section>
-
-<section class="scene h-wrap" id="features"><div class="pinbox" style="align-items:flex-start;justify-content:flex-start">
-<div id="track">
-  <div class="panel">
-    <div class="txt"><div class="num">01</div><h2>Budgets with <em class="hl">honest pace</em></h2>
-      <p>Per-category budgets that tell you where you'll land at month end — not just where you are today. No lectures, just math.</p></div>
-    <div class="tilt"><img class="phone" src="/assets/budgets.webp" width="720" height="1565" alt="Budget screen in Gilt"></div>
-  </div>
-  <div class="panel">
-    <div class="txt"><div class="num">02</div><h2>Receipts, read <em class="hl">on your iPhone.</em></h2>
-      <p>Scan a receipt and Apple Intelligence fills in the merchant, total, date and category — on the device, never on a server. Ask Siri how much you spent this month and get one spoken answer. Bank statements? Hand them to the AI you already use, with Gilt's prepared prompt.</p>
-      <p><a href="/import.html" class="hl">How statement import works →</a></p></div>
-    <div class="tilt"><img class="phone" src="/assets/transactions.webp" width="720" height="1565" alt="Transactions in Gilt"></div>
-  </div>
-  <div class="panel">
-    <div class="txt"><div class="num">03</div><h2>See where <em class="hl">it goes</em></h2>
-      <p>Spending by category, income vs expense, net worth over time — computed on your device, shown beautifully.</p></div>
-    <div class="tilt"><img class="phone" src="/assets/reports.webp" width="720" height="1565" alt="Reports in Gilt"></div>
+      <div class="glass budget" id="budget">
+        <div class="b-head"><span class="mono">Budget</span><span class="mono">November 2026 · sample</span></div>
+        <div class="b-top">
+          <svg class="ring" viewBox="0 0 80 80" role="img" aria-label="Share of the budget spent, by category">
+            <g transform="rotate(-90 40 40)">
+              <circle class="track" cx="40" cy="40" r="34"/>
+              <circle id="r1" cx="40" cy="40" r="34" stroke="var(--d1)" stroke-dasharray="4.21 209.42" stroke-dashoffset="0"/>
+              <circle id="r2" cx="40" cy="40" r="34" stroke="var(--d2)" stroke-dasharray="24.86 188.77" stroke-dashoffset="-4.21"/>
+              <circle id="r3" cx="40" cy="40" r="34" stroke="var(--d3)" stroke-dasharray="139.53 74.10" stroke-dashoffset="-29.07"/>
+            </g>
+          </svg>
+          <div>
+            <div class="b-label">Left to spend</div>
+            <div class="b-left tnum" id="bLeft" aria-live="polite">€484.77</div>
+            <div class="b-meta tnum" id="bMeta">21% · 17 days left</div>
+          </div>
+        </div>
+        <dl class="b-rows tnum">
+          <div><dt>Budget</dt><dd>€2,300.00</dd></div>
+          <div><dt>Spent</dt><dd id="bSpent">€1,815.23</dd></div>
+          <div><dt>Left to spend</dt><dd id="bDay">€28.52 / day</dd></div>
+        </dl>
+        <ul class="alloc tnum" aria-label="Allocations">
+          <li><b>Food &amp; Drinks</b><span id="a1l">€254.70 left</span><span class="bar"><i id="a1b" style="width:15.1%;background:var(--d1)"></i></span><small id="a1s">€45.30 of €300.00</small></li>
+          <li><b>Groceries</b><span id="a2l">€132.35 left</span><span class="bar"><i id="a2b" style="width:66.9%;background:var(--d2)"></i></span><small id="a2s">€267.65 of €400.00</small></li>
+          <li><b>Everything else</b><span id="a3l">€97.72 left</span><span class="bar"><i id="a3b" style="width:93.9%;background:var(--d3)"></i></span><small id="a3s">€1,502.28 of €1,600.00</small></li>
+        </ul>
+        <form class="b-form" id="bForm" novalidate>
+          <div><label class="sr" for="bCat">Category</label>
+            <select class="field" id="bCat"><option value="0">Food &amp; Drinks</option><option value="1" selected>Groceries</option><option value="2">Everything else</option></select></div>
+          <div><label class="sr" for="bAmt">Amount in euros</label>
+            <input class="field tnum" id="bAmt" inputmode="decimal" autocomplete="off" placeholder="€ 12.50"></div>
+          <button class="btn" type="submit">Add expense</button>
+          <div class="b-foot"><span class="b-err" id="bErr" role="alert"></span><button class="reset" type="button" id="bReset">Reset sample</button></div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
+
+<section class="facts" aria-label="Gilt at a glance"><div class="wrap">
+  <dl>
+    <div><dt class="mono">App Store privacy label</dt><dd>Data Not Collected</dd></div>
+    <div><dt class="mono">Account to create</dt><dd>None</dd></div>
+    <div><dt class="mono">Available in</dt><dd>174 countries</dd></div>
+    <div><dt class="mono">Languages</dt><dd>17</dd></div>
+  </dl>
 </div></section>
 
-
-<section class="scene" id="fx"><div class="pinbox">
-  <div id="fxGlyphs"></div>
-  <p class="keeper">Any currency. One truth.</p>
-  <div class="h1" style="font-size:clamp(52px,9vw,116px);line-height:1"><span id="fxVal"><span class="sym">€</span>7 853,15</span></div>
-  <p class="sub" style="margin-top:20px">Accounts keep their own currencies. Transfers never invent money out of exchange rates. Reports agree on one honest total — with <em class="hl">live FX rates</em>, synced to your device.</p>
-  <p style="margin-top:8px"><a href="/multi-currency.html" class="hl">How multi-currency works →</a></p>
-  <p id="fxNote">USD · EUR · AMD · GBP · JPY · +150 more</p>
-</div></section>
-
-<section class="scene" id="family">
-  <h2 class="st reveal">One household. <em class="hl">Two phones.</em></h2>
-  <p class="lead reveal">Share the ledger with your partner through your own iCloud accounts — and share one subscription with up to five people via Apple Family Sharing. No shared passwords, no server in the middle.</p>
-  <div id="famStage">
-    <img class="phone reveal" id="famL" src="/assets/overview.webp" width="720" height="1565" alt="Gilt on the first family iPhone" loading="lazy">
-    <svg id="thread" viewBox="0 0 560 80"><path id="threadPath" d="M0,40 C140,0 420,80 560,40"/></svg>
-    <img class="phone reveal" id="famR" src="/assets/budgets.webp" width="720" height="1565" alt="Gilt on the second family iPhone" loading="lazy">
+<section class="privacy film" id="privacy">
+  <video id="sky" muted loop playsinline preload="metadata" poster="/assets/film/sky.jpg" aria-hidden="true" tabindex="-1"><source src="/assets/film/sky.mp4" type="video/mp4"></video>
+  <div class="wrap grid">
+    <div class="copy">
+      <p class="mono">The part that matters</p>
+      <h2 class="focus-in">Your data only lives in <span class="dim">your own iCloud.</span></h2>
+      <p class="lede">No servers to breach. No account to create. No analytics watching. The App Store privacy label simply reads: “Data Not Collected.”</p>
+      <blockquote>“We couldn't read your data even if we wanted to. There is nothing on our side to read it with.”</blockquote>
+      <p><a class="textlink" href="/privacy-first.html">Privacy by architecture</a></p>
+    </div>
+    <div class="glass netlog" aria-live="off">
+      <header><span class="mono">This page, right now</span><span class="mono live"><i></i>Measured live</span></header>
+      <p class="zero tnum" id="nThird">0</p>
+      <p class="what">requests to other companies' servers while you read this.</p>
+      <ul class="rows tnum" id="nRows" aria-label="Files this page has loaded"></ul>
+      <p class="tally mono"><span id="nFiles">0 files</span><span id="nBytes">0 kB</span><span id="nCookies">0 cookies</span></p>
+      <p class="fine" id="nFine">Counted by your browser, not by us. Open DevTools → Network to check.</p>
+    </div>
   </div>
-  <p class="reveal" style="margin-top:44px"><a href="/family.html" class="hl">How Family works →</a></p>
 </section>
 
-<section class="section" id="pricing" style="text-align:center;padding-bottom:16vh">
-  <h2 class="st reveal">Ready when <em class="hl">you</em> are.</h2>
-  <p class="lead reveal">Gilt is on the App Store — free to start, no account, no card. Subscribe when it sticks, from $1.67 a month. And whatever happens, your data stays exportable forever.</p>
-  <p class="reveal"><a class="btn" href="https://apps.apple.com/app/id6790835958">Download on the App Store</a></p>
-  <p class="reveal" style="margin-top:24px"><a href="/demo.html" class="hl">See Gilt on iPhone and Mac →</a></p>
-  <p class="reveal" style="margin-top:16px"><a href="/pricing.html" class="hl">Plans & pricing →</a></p>
-  <p class="reveal" style="color:var(--dim);font-size:13px;margin-top:18px">On the App Store · 174 countries · 17 languages</p>
+<section class="screens" id="screens"><div class="wrap">
+  <div class="sec-head"><p class="mono">Inside Gilt</p><h2 class="focus-in">Honest numbers, <span class="dim">on iPhone and Mac.</span></h2></div>
+  <div class="grid">
+    <div>
+      <div class="tabs" role="tablist" aria-label="Features">
+      <button class="tab" role="tab" id="t0" aria-selected="true" aria-controls="stage"><span class="k">01</span><span class="h">Budgets with honest pace</span><span class="d"><span>Per-category budgets that tell you where you'll land at month end, not only where you are today. No lectures, just math.</span></span></button>
+      <button class="tab" role="tab" id="t1" aria-selected="false" aria-controls="stage" tabindex="-1"><span class="k">02</span><span class="h">Receipts, read on your iPhone</span><span class="d"><span>Scan a receipt and Apple Intelligence fills in the merchant, total, date and category. On the device, never on a server. Ask Siri how much you spent this month and get one spoken answer.</span></span></button>
+      <button class="tab" role="tab" id="t2" aria-selected="false" aria-controls="stage" tabindex="-1"><span class="k">03</span><span class="h">See where it goes</span><span class="d"><span>Spending by category, income vs expense, net worth over time. Computed on your device.</span></span></button>
+      <button class="tab" role="tab" id="t3" aria-selected="false" aria-controls="stage" tabindex="-1"><span class="k">04</span><span class="h">Review the month on Mac</span><span class="d"><span>Your budget, daily spending and allocations in a native Mac app, next to the same ledger on your iPhone.</span></span></button>
+      </div>
+      <p class="more"><a class="textlink" href="/import.html">How statement import works</a></p>
+    </div>
+    <div class="stage" id="stage" role="tabpanel" aria-labelledby="t0">
+      <figure class="shot on"><div class="phone tilt"><img src="/assets/img/budget.webp" width="720" height="1564" alt="Budget screen in Gilt: €484.77 left to spend in November 2026, with income and savings below"></div></figure>
+      <figure class="shot"><div class="phone tilt"><img src="/assets/img/transactions.webp" width="720" height="1564" loading="lazy" alt="Transactions list in Gilt, grouped by day"></div></figure>
+      <figure class="shot"><div class="phone tilt"><img src="/assets/img/reports.webp" width="720" height="1564" loading="lazy" alt="Reports in Gilt: spending by category for November 2026"></div></figure>
+      <figure class="shot"><div class="macwin tilt"><img src="/assets/img/mac-budget.webp" width="1600" height="1028" loading="lazy" alt="Gilt on Mac: budget, daily spending and allocations"></div></figure>
+    </div>
+  </div>
+  <p class="cap" style="margin-top:18px">Real Gilt screens, captured 14 November 2026. All balances and transactions are synthetic demonstration data.</p>
+</div></section>
+
+<section class="fx" id="currencies"><div class="wrap">
+  <p class="mono">Net worth · sample data</p>
+  <p class="big tnum" id="fxBig" aria-live="polite"><span class="sym" id="fxSym">€</span><span id="fxVal">7,913.15</span></p>
+  <div class="pills" role="group" aria-label="Home currency">
+    <button class="pill" aria-pressed="true" data-c="EUR">EUR</button>
+    <button class="pill" aria-pressed="false" data-c="USD">USD</button>
+    <button class="pill" aria-pressed="false" data-c="GBP">GBP</button>
+    <button class="pill" aria-pressed="false" data-c="AMD">AMD</button>
+    <button class="pill" aria-pressed="false" data-c="JPY">JPY</button>
+  </div>
+  <div class="below">
+    <div style="display:grid;gap:18px">
+      <h2 class="focus-in">Any currency. <span class="dim">One truth.</span></h2>
+      <p class="lede">Accounts keep their own currencies. Transfers never invent money out of exchange rates. Reports agree on one honest total, with live FX rates synced to your device.</p>
+      <p><a class="textlink" href="/multi-currency.html">How multi-currency works</a></p>
+    </div>
+    <div class="rate">
+      <p class="mono" id="fxRate">Home currency: EUR</p>
+      <p class="mono" id="fxDate">Rates snapshot 14 Nov 2026 · gilt.money/rates/latest.json</p>
+      <p class="mono">The same daily file the app reads, so two phones in one household convert to identical totals.</p>
+      <p class="mono">USD · EUR · AMD · GBP · JPY · +150 more</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="family" id="family"><div class="wrap grid">
+  <div class="pair" aria-hidden="true">
+    <div class="phone tilt"><img src="/assets/img/budget.webp" width="720" height="1564" loading="lazy" alt=""></div>
+    <div class="phone tilt"><img src="/assets/img/transactions.webp" width="720" height="1564" loading="lazy" alt=""></div>
+  </div>
+  <div class="copy">
+    <p class="mono">Gilt Family</p>
+    <h2 class="focus-in">One household. <span class="dim">Two phones.</span></h2>
+    <p class="lede">Share the ledger with your partner through your own iCloud accounts, and share one subscription with up to five people via Apple Family Sharing. No shared passwords, no server in the middle.</p>
+    <ul>
+      <li>Joint groceries and rent next to personal accounts, all in one place</li>
+      <li>Recurring bills visible to both of you</li>
+      <li>Each person signs in with their own Apple ID</li>
+    </ul>
+    <p><a class="textlink" href="/family.html">How Family works</a></p>
+    <p class="cap">Household sharing requires Gilt Family.</p>
+  </div>
+</div></section>
+
+<section class="assistant" id="assistant"><div class="wrap grid">
+  <div class="copy">
+    <p class="mono">On Mac · optional</p>
+    <h2 class="focus-in">Ask about <span class="dim">your money.</span></h2>
+    <p class="lede">Connect a compatible desktop assistant, choose the accounts it can access and select optional transaction details. The connection is read-only: the assistant cannot edit your ledger.</p>
+    <ul class="reads">
+      <li><span>Access</span><span>Read-only</span></li>
+      <li><span>Accounts</span><span>You choose</span></li>
+      <li><span>Optional details</span><span>Merchants, notes, tags, names</span></li>
+    </ul>
+    <p><a class="textlink" href="/demo.html">See the full iPhone and Mac demo</a></p>
+    <p class="cap">Assistant access is optional and requires setup. Information you permit is sent to the assistant's AI provider.</p>
+  </div>
+  <div class="chat" id="chat">
+    <header><span class="mono">Claude Desktop · connected to Gilt</span><button class="ghost" id="replay" type="button">Replay</button></header>
+    <p class="bubble step in" id="q">How much did I spend on groceries in November 2026?</p>
+    <span class="used step in"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>Used Gilt</span>
+    <div class="answer">
+      <p class="step in">You've spent <b>€267.65 on groceries so far in November 2026</b> (Nov 1–14). All four transactions are SuperMart charges on the Everyday account:</p>
+      <table class="tnum">
+        <thead class="step in"><tr><th>Date</th><th>Merchant</th><th>Amount</th></tr></thead>
+        <tbody>
+          <tr class="step in"><td>Nov 3</td><td>SuperMart</td><td>€60.00</td></tr>
+          <tr class="step in"><td>Nov 4</td><td>SuperMart</td><td>€86.40</td></tr>
+          <tr class="step in"><td>Nov 10</td><td>SuperMart</td><td>€60.00</td></tr>
+          <tr class="step in"><td>Nov 13</td><td>SuperMart</td><td>€61.25</td></tr>
+        </tbody>
+      </table>
+      <p class="sum step in tnum">€60.00 + €86.40 + €60.00 + €61.25 = <b>€267.65</b></p>
+    </div>
+    <p class="cap">Replay of a real Claude Desktop capture from 14 November 2026, with the prompt shortened. The answer matched the grocery category in Gilt's budget. Synthetic demonstration data.</p>
+  </div>
+</div></section>
+
+<section class="pricing" id="pricing"><div class="wrap">
+  <div class="sec-head">
+    <p class="mono">Pricing</p>
+    <h2 class="focus-in">Simple, honest <span class="dim">pricing.</span></h2>
+    <p class="lede">Every feature is unlocked from first launch. No account, no card, no countdown. The free start covers your first 10 transactions across 5 different days.</p>
+  </div>
+  <div class="seg" role="group" aria-label="Billing period"><i id="segThumb"></i><button id="byYear" aria-pressed="true" type="button">Yearly</button><button id="byMonth" aria-pressed="false" type="button">Monthly</button></div>
+  <div class="plans">
+    <div class="plan"><h3>Solo</h3><p class="price tnum">$<span class="amt" data-y="19.99" data-m="2.49">19.99</span><small class="per">/ year</small></p><p>Tracking your own money.</p><p class="note" data-y="About $1.67 a month · 14-day free trial" data-m="Billed monthly · the free start is the trial">About $1.67 a month · 14-day free trial</p></div>
+    <div class="plan"><h3>Family</h3><p class="price tnum">$<span class="amt" data-y="36.99" data-m="4.49">36.99</span><small class="per">/ year</small></p><p>A shared household budget for up to five people via Apple Family Sharing.</p><p class="note" data-y="About $3.08 a month · 14-day free trial" data-m="Billed monthly · the free start is the trial">About $3.08 a month · 14-day free trial</p></div>
+    <div class="plan"><h3>Lifetime</h3><p class="price tnum">$69.99<small>once</small></p><p>Everything in Solo, forever. No subscription.</p><p class="note">Launch offer · personal to your Apple ID</p></div>
+  </div>
+  <div class="promise">
+    <p class="mono">The data promise</p>
+    <p><b>Your data is never held hostage.</b> If your free start runs out or you cancel, Gilt switches to read-only: everything you entered stays visible, searchable and exportable to CSV. Forever, free. Prices in USD; local pricing applies in your country's App Store. Subscriptions are billed and managed by Apple.</p>
+  </div>
+</div></section>
+
+<section class="closing film" id="get">
+  <video id="lake2" muted playsinline preload="none" poster="/assets/film/lake-mist.jpg" aria-hidden="true" tabindex="-1"><source src="/assets/film/lake.mp4" type="video/mp4"></video>
+  <div class="wrap">
+    <h2>Ready when <span class="dim">you are.</span></h2>
+    <p class="lede">Gilt is on the App Store. Free to start, no account, no card. Subscribe when it sticks, from $1.67 a month. And whatever happens, your data stays exportable forever.</p>
+    <div class="hero-cta"><a class="btn" href="https://apps.apple.com/app/id6790835958">Download on the App Store</a><a class="textlink" href="/pricing.html">Plans and pricing</a></div>
+  </div>
 </section>
 </main>
-
-<footer><div class="fcols">
-  <div><h2>Gilt</h2><ul><li><a href="/">Home</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/faq.html">FAQ</a></li><li><a href="/whats-new.html">What’s new</a></li><li><a href="/demo.html">iPhone &amp; Mac demo</a></li><li><a href="/press.html">Press kit</a></li></ul></div>
-  <div><h2>Features</h2><ul><li><a href="/import.html">Receipts &amp; statement import</a></li><li><a href="/family.html">Family budget</a></li><li><a href="/privacy-first.html">Privacy by architecture</a></li><li><a href="/multi-currency.html">Multi-currency</a></li></ul></div>
-  <div><h2>Blog</h2><ul><li><a href="/blog/import-bank-statement-with-ai.html">Import any bank statement</a></li><li><a href="/blog/what-no-servers-means.html">What “no servers” means</a></li><li><a href="/blog/family-budget-iphone.html">Family budget on iPhone</a></li></ul></div>
-  <div><h2>Legal</h2><ul><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="mailto:support@gilt.money">support@gilt.money</a></li></ul></div>
-</div>
-<p>© 2026 Gilt · Built for iPhone and Mac · <a href="https://apps.apple.com/app/id6790835958">Available on the App Store</a></p>
-</footer>
-
-<script src="/assets/js/gsap.min.js"></script>
-<script src="/assets/js/ScrollTrigger.min.js"></script>
+{% include footer.html %}
 <script>
+(() => {
+const $ = id => document.getElementById(id);
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-/* ---- gold dust canvas ---- */
-const cv = document.getElementById('dust'), cx = cv.getContext('2d');
-let W,H,parts=[],gather=0;
-function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight}
-resize(); addEventListener('resize',resize);
-const N = innerWidth<700?60:120;
-for(let i=0;i<N;i++)parts.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.7+.4,s:Math.random()*.35+.06,a:Math.random()*Math.PI*2,o:Math.random()*.5+.15});
-function tick(){cx.clearRect(0,0,W,H);
- const gx=W/2, gy=H*0.62;
- for(const p of parts){
-  p.a+=0.004; p.y+=p.s; p.x+=Math.sin(p.a)*.3;
-  if(p.y>H+8){p.y=-8;p.x=Math.random()*W}
-  let x=p.x,y=p.y;
-  if(gather>0){x=p.x+(gx-p.x)*gather*.92; y=p.y+(gy-p.y)*gather*.92}
-  cx.beginPath();cx.arc(x,y,p.r,0,7);cx.fillStyle=`rgba(216,168,82,${p.o*(0.6+gather*0.8)})`;cx.fill();
- }
- requestAnimationFrame(tick)}
-if(!reduced) tick();
-/* ---- nav ---- */
-addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('solid',scrollY>60)},{passive:true});
-if(!reduced && window.gsap){
-gsap.registerPlugin(ScrollTrigger);
-/* hero: the app assembles from scattered pieces, then HOLDS assembled before releasing */
-const heroTL = gsap.timeline({defaults:{ease:'none'},
- scrollTrigger:{trigger:'#hero',start:'top top',end:'+=120%',scrub:1,pin:true,invalidateOnRefresh:true}});
-document.querySelectorAll('.shard').forEach((el,i)=>{
-  heroTL.fromTo(el,
-   {xPercent:-50,yPercent:-50,
-    x:()=>parseFloat(el.dataset.x)/100*innerWidth,
-    y:()=>parseFloat(el.dataset.y)/100*innerHeight,
-    rotate:parseFloat(el.dataset.r),scale:1,opacity:1},
-   {xPercent:-50,yPercent:-50,x:0,y:()=>innerHeight*0.07,rotate:0,scale:.15,opacity:0,
-    duration:.5,ease:'power2.in',immediateRender:true}, i*0.035);
-});
-heroTL.fromTo('#heroPhone',{opacity:.55,scale:.95},{opacity:1,scale:1,duration:.6}, 0);
-heroTL.fromTo('#phoneGlow',{opacity:.12},{opacity:.8,duration:.6}, 0);
-/* the hold: assembled phone stays on screen, glow breathes, nothing else moves */
-heroTL.to('#phoneGlow',{opacity:.95,duration:.25}, .68);
-heroTL.to('#heroPhone',{y:-10,scale:1.015,duration:.32}, .68);
-heroTL.to({},{duration:.10}); /* tail so release happens after the beat */
-/* vault: pin + word reveal + particle gather */
-const words = document.querySelectorAll('#vaultText .w');
-ScrollTrigger.create({trigger:'#vault',start:'top top',end:'+=100%',scrub:true,pin:true,
- onUpdate:self=>{gather=Math.sin(Math.min(self.progress,1)*Math.PI)}});
-gsap.from('#vaultText div',{opacity:0.1,y:40,stagger:.2,scrollTrigger:{trigger:'#vault',start:'top 60%',end:'top top',scrub:true}});
-gsap.to('#vaultCore',{boxShadow:'0 0 90px rgba(216,168,82,.5)',scale:1.08,scrollTrigger:{trigger:'#vault',start:'top center',end:'bottom center',scrub:true}});
-/* horizontal features */
-const track=document.getElementById('track');
-gsap.to(track,{xPercent:-66.666,ease:'none',scrollTrigger:{trigger:'#features',start:'top top',end:'+=200%',scrub:1,pin:true,invalidateOnRefresh:true}});
-document.querySelectorAll('.panel .tilt img').forEach(img=>{
- gsap.fromTo(img,{rotateY:-16,rotateZ:2},{rotateY:12,rotateZ:-2,ease:'none',scrollTrigger:{trigger:'#features',start:'top top',end:'+=200%',scrub:1}})});
-/* family thread */
-const path=document.getElementById('threadPath'),len=path.getTotalLength();
-path.style.strokeDasharray=len; path.style.strokeDashoffset=len;
-gsap.to(path,{strokeDashoffset:0,scrollTrigger:{trigger:'#famStage',start:'top 75%',end:'top 30%',scrub:true}});
-gsap.fromTo('#famL',{rotateY:18,x:-30},{rotateY:-8,x:0,scrollTrigger:{trigger:'#famStage',start:'top 85%',end:'top 30%',scrub:true}});
-gsap.fromTo('#famR',{rotateY:-18,x:30},{rotateY:8,x:0,scrollTrigger:{trigger:'#famStage',start:'top 85%',end:'top 30%',scrub:true}});
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const eur = n => '€' + n.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+const ease = t => 1 - Math.pow(1 - t, 4);
+function tween(from, to, ms, step) {
+  if (reduced || from === to) { step(to); return; }
+  const t0 = performance.now();
+  (function f(now) { const p = clamp((now - t0) / ms, 0, 1); step(from + (to - from) * ease(p)); if (p < 1) requestAnimationFrame(f); })(t0);
+}
 
-/* fx scene: floating currency glyphs converge to a ring; amount morphs through currencies */
-(function(){
- const syms=['$','€','֏','£','¥','₩','zł','kr','₺','₫','R$','฿','₴','Rp'];
- const wrap=document.getElementById('fxGlyphs');
- const glyphs=syms.map((s,i)=>{const el=document.createElement('span');el.textContent=s;
-   el.style.fontSize=(22+Math.random()*30)+'px';wrap.appendChild(el);return el});
- const R=Math.min(innerWidth,620)*0.42;
- glyphs.forEach((el,i)=>{
-   const a=(i/glyphs.length)*Math.PI*2;
-   const sx=(Math.random()-.5)*innerWidth*1.1, sy=(Math.random()-.5)*innerHeight*1.0;
-   gsap.fromTo(el,{x:sx,y:sy,opacity:0,rotate:(Math.random()-.5)*70,filter:'blur(5px)'},
-     {x:Math.cos(a)*R,y:Math.sin(a)*R*0.62,opacity:.85,rotate:0,filter:'blur(0px)',ease:'none',
-      scrollTrigger:{trigger:'#fx',start:'top top',end:'+=120%',scrub:1}});
- });
- const vals=[['€','7 853,15'],['$','8 540.20'],['֏','3 245 600'],['£','6 691.40'],['¥','1 264 900']];
- const fxVal=document.getElementById('fxVal'); let cur=0;
- ScrollTrigger.create({trigger:'#fx',start:'top top',end:'+=120%',scrub:true,pin:true,
-  onUpdate:self=>{
-   const idx=Math.min(vals.length-1,Math.floor(self.progress*vals.length));
-   if(idx!==cur){cur=idx;
-     gsap.fromTo(fxVal,{opacity:.15,filter:'blur(7px)',scale:.97},{opacity:1,filter:'blur(0px)',scale:1,duration:.5,ease:'power2.out'});
-     fxVal.innerHTML='<span class="sym">'+vals[idx][0]+'</span>'+vals[idx][1];}
-  }});
+/* 1. live budget card (figures from the real Budget screen, sample data) */
+const BUDGET = 2300, DAYS = 17, C = 2 * Math.PI * 34;
+const base = [{spent: 45.30, cap: 300}, {spent: 267.65, cap: 400}, {spent: 1502.28, cap: 1600}];
+let cats = base.map(c => ({...c})), shownLeft = 484.77;
+function drawBudget() {
+  const spent = cats.reduce((s, c) => s + c.spent, 0), left = BUDGET - spent;
+  let off = 0;
+  cats.forEach((c, i) => {
+    const len = c.spent / BUDGET * C, el = $('r' + (i + 1));
+    el.style.strokeDasharray = len.toFixed(2) + ' ' + (C - len).toFixed(2);
+    el.style.strokeDashoffset = (-off).toFixed(2); off += len;
+    $('a' + (i + 1) + 'l').textContent = eur(c.cap - c.spent) + ' left';
+    $('a' + (i + 1) + 'b').style.width = clamp(c.spent / c.cap * 100, 0, 100).toFixed(1) + '%';
+    $('a' + (i + 1) + 's').textContent = eur(c.spent) + ' of ' + eur(c.cap);
+  });
+  tween(shownLeft, left, 600, v => { $('bLeft').textContent = eur(Math.round(v * 100) / 100); });
+  shownLeft = left;
+  $('bMeta').textContent = Math.round(left / BUDGET * 100) + '% · ' + DAYS + ' days left';
+  $('bSpent').textContent = eur(spent);
+  $('bDay').textContent = eur(left / DAYS) + ' / day';
+}
+$('bForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const i = +$('bCat').value, c = cats[i];
+  const v = Math.round(parseFloat($('bAmt').value.replace(',', '.').replace(/[^0-9.]/g, '')) * 100) / 100;
+  if (!(v > 0)) { $('bErr').textContent = 'Enter an amount first.'; $('bAmt').focus(); return; }
+  const room = Math.round((c.cap - c.spent) * 100) / 100;
+  if (v > room) { $('bErr').textContent = 'This sample has ' + eur(room) + ' left there.'; $('bAmt').focus(); return; }
+  c.spent = Math.round((c.spent + v) * 100) / 100; $('bAmt').value = ''; $('bErr').textContent = ''; drawBudget();
+});
+$('bAmt').addEventListener('input', () => { $('bErr').textContent = ''; });
+$('bReset').addEventListener('click', () => { cats = base.map(c => ({...c})); $('bErr').textContent = ''; $('bAmt').value = ''; drawBudget(); });
+
+/* 2. films. With a mouse, scrolling scrubs the mist away (the page still scrolls
+   normally, nothing is pinned). On touch the same film simply plays once. */
+const lake = $('lake'), band = $('heroFilm'), sky = $('sky'), lake2 = $('lake2');
+/* if the browser refuses to play (iOS Low Power Mode), show the clear still instead of a stuck first frame */
+const still = v => { v.removeAttribute('src'); v.replaceChildren(); v.load(); v.poster = '/assets/film/lake-clear.jpg'; };
+const once = (el, fn, threshold) => { const io = new IntersectionObserver(es => { if (es[0].isIntersecting) { io.disconnect(); fn(); } }, {threshold}); io.observe(el); };
+if (reduced) {
+  lake.poster = lake2.poster = '/assets/film/lake-clear.jpg';
+} else {
+  if (matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    let cur = 0, target = 0, raf = 0, inView = false;
+    const wanted = () => { const r = band.getBoundingClientRect(), vh = innerHeight, start = vh * 0.98, end = Math.min(vh * 0.12, (vh - r.height) / 2 + vh * 0.1); return clamp((start - r.top) / (start - end), 0, 1); };
+    const scrub = () => {
+      raf = 0; if (!lake.duration) return;
+      target = wanted() * (lake.duration - 0.06);
+      cur += (target - cur) * 0.14;
+      if (Math.abs(target - cur) < 0.004) cur = target;
+      if (Math.abs(lake.currentTime - cur) > 0.01) lake.currentTime = cur;
+      if (inView && cur !== target) raf = requestAnimationFrame(scrub);
+    };
+    const kick = () => { if (inView && !raf) raf = requestAnimationFrame(scrub); };
+    lake.addEventListener('loadedmetadata', () => { cur = wanted() * (lake.duration - 0.06); lake.currentTime = cur; kick(); });
+    new IntersectionObserver(es => { inView = es[0].isIntersecting; kick(); }).observe(band);
+    addEventListener('scroll', kick, {passive: true}); addEventListener('resize', kick);
+    lake.preload = 'auto'; lake.src = '/assets/film/lake-scrub.mp4';
+  } else {
+    $('filmHint').textContent = 'Watch it clear';
+    lake.src = '/assets/film/lake.mp4';
+    once(band, () => { lake.play().catch(() => still(lake)); }, 0.3);
+  }
+  new IntersectionObserver(es => { es[0].isIntersecting ? sky.play().catch(() => {}) : sky.pause(); }, {rootMargin: '100px'}).observe(sky);
+  once(lake2, () => { lake2.play().catch(() => still(lake2)); }, 0.35);
+}
+
+/* 4. privacy proof: the browser counts what this page really loaded */
+const own = location.origin, seen = new Set(), rows = [];
+let third = 0, files = 0, bytes = 0;
+const kind = e => { const n = e.name.split('?')[0]; return /\.woff2?$/.test(n) ? 'font' : /\.(mp4|webm)$/.test(n) ? 'film' : /\.(webp|jpe?g|png|svg)$/.test(n) ? 'image' : /\.css$/.test(n) ? 'style' : /\.js$/.test(n) ? 'script' : (e.initiatorType || 'file'); };
+const size = b => b <= 0 ? '0 kB' : b >= 1e6 ? (b / 1e6).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1e3)) + ' kB';
+function addEntry(e) {
+  if (seen.has(e.name)) return; seen.add(e.name);
+  let u; try { u = new URL(e.name); } catch (_) { return; }
+  if (!/^https?:$/.test(u.protocol)) return;
+  const mine = u.origin === own;
+  const b = e.encodedBodySize || e.transferSize || 0;
+  if (mine) { files++; bytes += b; } else third++;
+  rows.unshift({t: kind(e), n: u.pathname.split('/').pop() || u.hostname, s: b ? size(b) : '', o: mine ? 'this site' : u.hostname});
+  drawNet();
+}
+function drawNet() {
+  $('nThird').textContent = third;
+  $('nFiles').textContent = files + (files === 1 ? ' file' : ' files');
+  $('nBytes').textContent = size(bytes) + ' in total';
+  let ck = 0; try { ck = document.cookie ? document.cookie.split(';').length : 0; } catch (_) {}
+  $('nCookies').textContent = ck + (ck === 1 ? ' cookie' : ' cookies');
+  const ul = $('nRows'); ul.textContent = '';
+  rows.slice(0, 5).forEach(r => { const li = document.createElement('li');
+    [['t', r.t], ['n', r.n], ['s', r.s], ['o', r.o]].forEach(([c, v]) => { const s = document.createElement('span'); s.className = c; s.textContent = v; li.appendChild(s); });
+    ul.appendChild(li); });
+}
+try {
+  performance.getEntriesByType('resource').forEach(addEntry);
+  new PerformanceObserver(l => l.getEntries().forEach(addEntry)).observe({type: 'resource', buffered: true});
+} catch (_) {}
+drawNet();
+
+/* 5. feature tabs */
+const tabs = [...document.querySelectorAll('.tab')], shots = [...document.querySelectorAll('.shot')];
+function pick(i, focus) {
+  tabs.forEach((t, k) => { t.setAttribute('aria-selected', k === i); t.tabIndex = k === i ? 0 : -1; });
+  shots.forEach((s, k) => s.classList.toggle('on', k === i));
+  $('stage').setAttribute('aria-labelledby', 't' + i); if (focus) tabs[i].focus();
+}
+tabs.forEach((t, i) => {
+  t.addEventListener('click', () => pick(i));
+  t.addEventListener('keydown', e => { if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); pick((i + 1) % tabs.length, true); }
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); pick((i + tabs.length - 1) % tabs.length, true); } });
+});
+
+/* 6. home currency: live rates from /rates/latest.json, the same daily file the
+   app reads. The numbers below are only the fallback if that request fails. */
+const NET = 7913.15, FX = {EUR: [1, '€', 2], USD: [1.1082, '$', 2], GBP: [0.83558, '£', 2], AMD: [400.33, '֏', 0], JPY: [177.15, '¥', 0]};
+let fxShown = NET, fxCur = 'EUR';
+function showFx(c) {
+  fxCur = c;
+  document.querySelectorAll('.pill').forEach(x => x.setAttribute('aria-pressed', x.dataset.c === c));
+  const [rate, sym, dp] = FX[c], to = NET * rate;
+  $('fxSym').textContent = sym;
+  tween(fxShown, to, 900, v => { $('fxVal').textContent = v.toLocaleString('en-US', {minimumFractionDigits: dp, maximumFractionDigits: dp}); });
+  fxShown = to;
+  $('fxRate').textContent = c === 'EUR' ? 'Home currency: EUR' : 'Home currency: ' + c + ' · 1 EUR = ' + rate + ' ' + c;
+}
+document.querySelectorAll('.pill').forEach(p => p.addEventListener('click', () => showFx(p.dataset.c)));
+fetch('/rates/latest.json').then(r => r.ok ? r.json() : Promise.reject()).then(d => {
+  if (d.base !== 'EUR') return;
+  Object.keys(FX).forEach(k => { if (k !== 'EUR' && d.rates[k] > 0) FX[k][0] = d.rates[k]; });
+  $('fxDate').textContent = 'Rates snapshot ' + new Date(d.asOf + 'T00:00:00Z').toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC'}) + ' · gilt.money/rates/latest.json';
+  if (fxCur !== 'EUR') showFx(fxCur);
+}).catch(() => {});
+
+/* 7. assistant replay */
+const chat = $('chat'), q = $('q'), qText = q.textContent; let run = 0;
+$('replay').addEventListener('click', () => {
+  const id = ++run, steps = [...chat.querySelectorAll('.step')];
+  if (reduced) return;
+  chat.classList.add('playing'); steps.forEach(s => s.classList.remove('in'));
+  q.classList.add('in'); q.textContent = '';
+  let i = 0;
+  (function type() { if (id !== run) return;
+    if (i < qText.length) { q.textContent = qText.slice(0, ++i); setTimeout(type, 16); return; }
+    steps.slice(1).forEach((s, k) => setTimeout(() => { if (id === run) s.classList.add('in'); if (k === steps.length - 2) setTimeout(() => { if (id === run) chat.classList.remove('playing'); }, 600); }, 420 + k * 210));
+  })();
+});
+
+/* 8. pricing period */
+const yBtn = $('byYear'), mBtn = $('byMonth'), thumb = $('segThumb');
+function period(m) {
+  yBtn.setAttribute('aria-pressed', !m); mBtn.setAttribute('aria-pressed', m);
+  const b = m ? mBtn : yBtn; thumb.style.width = b.offsetWidth + 'px'; thumb.style.transform = 'translateX(' + (b.offsetLeft - 4) + 'px)';
+  document.querySelectorAll('.amt').forEach(a => { const from = parseFloat(a.textContent), to = parseFloat(m ? a.dataset.m : a.dataset.y); tween(from, to, 500, v => { a.textContent = v.toFixed(2); }); });
+  document.querySelectorAll('.per').forEach(p => { p.textContent = m ? '/ month' : '/ year'; });
+  document.querySelectorAll('.note[data-y]').forEach(n => { n.textContent = m ? n.dataset.m : n.dataset.y; });
+}
+yBtn.addEventListener('click', () => period(false)); mBtn.addEventListener('click', () => period(true));
+const placeThumb = () => { const b = mBtn.getAttribute('aria-pressed') === 'true' ? mBtn : yBtn; thumb.style.width = b.offsetWidth + 'px'; thumb.style.transform = 'translateX(' + (b.offsetLeft - 4) + 'px)'; };
+placeThumb(); addEventListener('resize', placeThumb); if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeThumb);
+
+/* 9. devices lean toward the pointer */
+if (!reduced && matchMedia('(hover:hover) and (pointer:fine)').matches) {
+  document.querySelectorAll('.stage, .pair').forEach(area => {
+    area.addEventListener('pointermove', e => { const r = area.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      area.querySelectorAll('.tilt').forEach(d => { d.style.transform = 'rotateY(' + (x * 9).toFixed(2) + 'deg) rotateX(' + (-y * 7).toFixed(2) + 'deg)'; }); });
+    area.addEventListener('pointerleave', () => area.querySelectorAll('.tilt').forEach(d => { d.style.transform = ''; }));
+  });
+}
 })();
-/* generic reveals */
-document.querySelectorAll('.reveal').forEach(el=>{
- gsap.to(el,{opacity:1,y:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 86%'}})});
-} else { document.querySelectorAll('.reveal').forEach(el=>{el.style.opacity=1;el.style.transform='none'}) }
 </script>
 </body></html>

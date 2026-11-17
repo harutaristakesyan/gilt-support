@@ -1,11 +1,13 @@
 ---
 ---
-// Entry point. Partials live in _sass/ and are used in the order below —
-// that order is the cascade, so keep it.
+// Entry point for the content pages. Partials live in _sass/ and are used in
+// the order below — that order is the cascade, so keep it. The homepage does
+// not load this file: it inlines the shared partials plus its own rules
+// (_includes/index-css.scss).
 @use "tokens";
-@use "theme-content";
 @use "base";
 @use "layout";
+@use "buttons";
 @use "typography";
 @use "components";
 @use "footer";

@@ -1,0 +1,4 @@
+/* --------------------------------- buttons -------------------------------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:600;font-size:15px;line-height:1.2;padding:14px 22px;border-radius:99px;border:0;cursor:pointer;transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
